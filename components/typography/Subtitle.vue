@@ -1,0 +1,44 @@
+<template>
+  <div class="subtitle" :class="{ dark, centered, ...noMarginClass }">
+    <slot />
+  </div>
+</template>
+
+<script>
+import darkable from '../../mixins/darkable'
+import centerable from '../../mixins/centerable'
+import noMarginable from '../../mixins/no-marginable'
+
+export default {
+  mixins: [
+    darkable,
+    centerable,
+    noMarginable
+  ]
+}
+</script>
+
+<style lang="scss">
+@import '~@gio/styles/fonts';
+@import '~@gio/styles/colors';
+@import '~@gio/styles/sizes';
+
+.subtitle {
+  font-family: $special-font;
+  font-size: 5.5rem;
+  font-weight: 700;
+  color: $tertiary-text-dark;
+
+  &:not(.no-margin) {
+    @include text-margin;
+  }
+
+  &.centered {
+    text-align: center;
+  }
+
+  &.dark {
+    color: $tertiary-text-light;
+  }
+}
+</style>
