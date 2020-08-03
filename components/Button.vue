@@ -1,39 +1,27 @@
 <template>
   <GioSmartLink
     class="button"
-    :class="{ dark, 'no-margin-left': noMarginLeft, 'no-margin-right': noMarginRight }"
+    :class="{
+      dark,
+      'no-margin-left': noMarginLeft,
+      'no-margin-right': noMarginRight
+    }"
     :href="href"
     @click="$emit('click')"
   >
-    <GioBaseText class="button__text" v-if="text" :dark="dark" type="primary" no-margin>
-      <span class="button__icon" v-if="icon">
-        <fa-icon :icon="computedIcon" />
-      </span>
-      {{ text }}
+    <GioBaseText :dark="dark" type="primary" class="button-content">
+      <slot></slot>
     </GioBaseText>
   </GioSmartLink>
 </template>
 
-<script>
+<script lang="ts">
+import Vue from 'vue'
 import darkable from '../mixins/darkable'
 
-export default {
-  mixins: [
-    darkable
-  ],
+export default Vue.extend({
+  mixins: [darkable],
   props: {
-    icon: {
-      type: String,
-      required: false
-    },
-    brand: {
-      type: Boolean,
-      default: false
-    },
-    text: {
-      type: String,
-      required: false
-    },
     href: {
       type: String,
       required: false
@@ -46,15 +34,8 @@ export default {
       type: Boolean,
       default: false
     }
-  },
-  computed: {
-    computedIcon () {
-      return this.brand
-        ? ['fab', this.icon]
-        : this.icon
-    }
   }
-}
+})
 </script>
 
 <style lang="scss">
@@ -64,6 +45,7 @@ export default {
 
 .button {
   height: 9rem;
+  width: fit-content;
   display: flex;
   align-items: center;
   background-color: $accent-light;
@@ -83,11 +65,14 @@ export default {
     margin-right: 2rem;
   }
 
-  &:hover, &:active, &:focus {
+  &:hover,
+  &:active,
+  &:focus {
     @include transition(base, in, color, background-color);
   }
 
-  &:active, &:focus {
+  &:active,
+  &:focus {
     background-color: $focus-light;
   }
 
@@ -99,7 +84,8 @@ export default {
     background-color: $accent-dark;
     color: $primary-text-light;
 
-    &:active, &:focus {
+    &:active,
+    &:focus {
       background-color: $focus-dark;
     }
 
@@ -108,15 +94,16 @@ export default {
     }
   }
 
-  &__icon {
-    font-size: 0.9em;
-    margin-right: 1rem;
+  > * {
     flex: 0 0 auto;
   }
 
-  &__text {
+  .button-content {
     text-transform: uppercase;
-    flex: 0 0 auto;
+
+    > :not(:first-child) {
+      margin-left: 2rem;
+    }
   }
 }
 </style>

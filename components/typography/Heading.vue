@@ -9,19 +9,16 @@ import darkable from '../../mixins/darkable'
 import noMarginable from '../../mixins/no-marginable'
 
 export default {
-  mixins: [
-    darkable,
-    noMarginable
-  ],
+  mixins: [darkable, noMarginable],
   props: {
     level: {
       type: Number,
       default: 2,
-      validator: (value) => [1, 2, 3, 4].includes(value)
+      validator: value => [1, 2, 3, 4].includes(value)
     }
   },
   computed: {
-    levelClass () {
+    levelClass() {
       const className = `level-${this.level}`
       const classes = {}
       classes[className] = true
@@ -66,7 +63,7 @@ export default {
   }
 
   &.level-2 {
-    font-size: 8rem;
+    font-size: 7rem; // 8rem
   }
 
   &.level-3 {

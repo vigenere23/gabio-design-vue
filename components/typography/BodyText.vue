@@ -8,9 +8,7 @@
 import darkable from '../../mixins/darkable'
 
 export default {
-  mixins: [
-    darkable
-  ]
+  mixins: [darkable]
 }
 </script>
 

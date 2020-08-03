@@ -33,7 +33,7 @@ export default {
     }
   },
   computed: {
-    decodedCode () {
+    decodedCode() {
       return decodeURI(this.code)
     }
   }

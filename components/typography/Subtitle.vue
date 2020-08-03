@@ -10,11 +10,7 @@ import centerable from '../../mixins/centerable'
 import noMarginable from '../../mixins/no-marginable'
 
 export default {
-  mixins: [
-    darkable,
-    centerable,
-    noMarginable
-  ]
+  mixins: [darkable, centerable, noMarginable]
 }
 </script>
 

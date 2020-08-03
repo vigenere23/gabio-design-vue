@@ -6,7 +6,7 @@ import 'prismjs/components/prism-python'
 import 'prismjs/components/prism-markdown'
 
 export class PrismRegisterer {
-  register () {
+  register() {
     Vue.component('prism', Prism)
   }
 }

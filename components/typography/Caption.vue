@@ -1,5 +1,8 @@
 <template>
-  <div class="caption" :class="{ dark, ...noMarginClass, 'no-border': noBorder }">
+  <div
+    class="caption"
+    :class="{ dark, ...noMarginClass, 'no-border': noBorder }"
+  >
     <GioBaseText type="tertiary" :dark="dark">
       <slot />
     </GioBaseText>
@@ -11,10 +14,7 @@ import darkable from '../../mixins/darkable'
 import noMarginable from '../../mixins/no-marginable'
 
 export default {
-  mixins: [
-    darkable,
-    noMarginable
-  ],
+  mixins: [darkable, noMarginable],
   props: {
     noBorder: {
       type: Boolean,

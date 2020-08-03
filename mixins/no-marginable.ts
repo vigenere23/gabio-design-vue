@@ -5,7 +5,7 @@ export default {
       default: false
     }
   },
-  data () {
+  data() {
     return {
       noMarginClass: {
         'no-margin': this.noMargin

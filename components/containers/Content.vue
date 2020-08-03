@@ -1,5 +1,9 @@
 <template>
-  <div class="content" :class="{ 'no-padding': noPadding }" :style="{ maxWidth: width }">
+  <div
+    class="content"
+    :class="{ 'no-padding': noPadding }"
+    :style="{ maxWidth: width }"
+  >
     <slot />
   </div>
 </template>

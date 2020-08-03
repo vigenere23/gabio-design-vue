@@ -1,5 +1,9 @@
 <template>
-  <section class="section" :class="{ dark, 'no-padding': noPadding }" :id="computedId">
+  <section
+    class="section"
+    :class="{ dark, 'no-padding': noPadding }"
+    :id="computedId"
+  >
     <slot />
   </section>
 </template>
@@ -8,9 +12,7 @@
 import darkable from '../../mixins/darkable'
 
 export default {
-  mixins: [
-    darkable
-  ],
+  mixins: [darkable],
   props: {
     id: {
       type: String,
@@ -22,10 +24,8 @@ export default {
     }
   },
   computed: {
-    computedId () {
-      return this.id
-        ? `#${this.id}`
-        : null
+    computedId() {
+      return this.id ? `#${this.id}` : null
     }
   }
 }

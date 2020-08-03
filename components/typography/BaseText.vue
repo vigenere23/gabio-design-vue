@@ -8,20 +8,18 @@
 import darkable from '../../mixins/darkable'
 
 export default {
-  mixins: [
-    darkable
-  ],
+  mixins: [darkable],
   props: {
     type: {
       type: String,
       default: 'secondary',
-      validator: (value) => {
+      validator: value => {
         return ['primary', 'secondary', 'tertiary'].includes(value)
       }
     }
   },
   computed: {
-    typeClass () {
+    typeClass() {
       const classes = {}
       classes[this.type] = true
       return classes

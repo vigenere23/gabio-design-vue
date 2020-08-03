@@ -1,5 +1,9 @@
 <template>
-  <div class="title" :class="{ dark, centered, ...noMarginClass }" :style="{ fontSize }">
+  <div
+    class="title"
+    :class="{ dark, centered, ...noMarginClass }"
+    :style="{ fontSize }"
+  >
     <slot />
   </div>
 </template>
@@ -10,11 +14,7 @@ import centerable from '../../mixins/centerable'
 import noMarginable from '../../mixins/no-marginable'
 
 export default {
-  mixins: [
-    darkable,
-    centerable,
-    noMarginable
-  ],
+  mixins: [darkable, centerable, noMarginable],
   props: {
     fontSize: {
       type: String,

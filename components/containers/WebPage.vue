@@ -1,5 +1,5 @@
 <template>
-  <div class="page" :class="{ 'full-height': fullHeight }">
+  <div class="web-page" :class="{ 'full-height': fullHeight }">
     <slot />
   </div>
 </template>
@@ -18,7 +18,7 @@ export default {
 <style lang="scss">
 @import '~@gio/styles/sizes';
 
-.page  {
+.web-page {
   width: 100%;
   min-height: calc(100vh - #{$header-height});
 
