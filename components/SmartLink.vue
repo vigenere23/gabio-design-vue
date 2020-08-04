@@ -14,16 +14,17 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import { Component, Prop } from 'vue-property-decorator'
+import { Component } from 'vue-property-decorator'
 
-@Component({})
-export default class SmartLink extends Vue {
-  @Prop({ type: Boolean, default: false })
-  disable!: string
+const SmartLinkProps = Vue.extend({
+  props: {
+    disable: { type: Boolean, default: false },
+    href: { type: String }
+  }
+})
 
-  @Prop({ type: String })
-  href!: string
-
+@Component
+export default class SmartLink extends SmartLinkProps {
   get component(): string {
     return this.href ? (this.isRelativeLink ? 'router-link' : 'a') : 'div'
   }

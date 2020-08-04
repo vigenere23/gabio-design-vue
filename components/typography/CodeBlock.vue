@@ -20,8 +20,11 @@
   </div>
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import Vue from 'vue'
+import { Component } from 'vue-property-decorator'
+
+const CodeBlockProps = Vue.extend({
   props: {
     language: {
       type: String,
@@ -31,11 +34,13 @@ export default {
       type: String,
       required: true
     }
-  },
-  computed: {
-    decodedCode() {
-      return decodeURI(this.code)
-    }
+  }
+})
+
+@Component
+export default class CodeBlocks extends CodeBlockProps {
+  get decodedCode(): string {
+    return decodeURI(this.code)
   }
 }
 </script>

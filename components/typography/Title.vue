@@ -8,20 +8,30 @@
   </div>
 </template>
 
-<script>
-import darkable from '../../mixins/darkable'
-import centerable from '../../mixins/centerable'
-import noMarginable from '../../mixins/no-marginable'
+<script lang="ts">
+import Vue from 'vue'
+import { Component } from 'vue-property-decorator'
+import { Darkable } from '../../mixins/darkable'
+import { Centerable } from '../../mixins/centerable'
+import { NoMarginable } from '../../mixins/no-marginable'
+import { mixins } from 'vue-class-component'
 
-export default {
-  mixins: [darkable, centerable, noMarginable],
+const TitleProps = Vue.extend({
   props: {
     fontSize: {
       type: String,
       default: '14rem'
     }
   }
-}
+})
+
+@Component
+export default class Title extends mixins(
+  TitleProps,
+  Darkable,
+  Centerable,
+  NoMarginable
+) {}
 </script>
 
 <style lang="scss">

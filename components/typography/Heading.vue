@@ -5,11 +5,11 @@
 </template>
 
 <script>
-import darkable from '../../mixins/darkable'
-import noMarginable from '../../mixins/no-marginable'
+import { Darkable } from '../../mixins/darkable'
+import { NoMarginable } from '../../mixins/no-marginable'
 
 export default {
-  mixins: [darkable, noMarginable],
+  mixins: [Darkable, NoMarginable],
   props: {
     level: {
       type: Number,
@@ -19,10 +19,9 @@ export default {
   },
   computed: {
     levelClass() {
-      const className = `level-${this.level}`
-      const classes = {}
-      classes[className] = true
-      return classes
+      return {
+        [`level-${this.level}`]: true
+      }
     }
   }
 }

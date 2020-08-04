@@ -4,15 +4,18 @@
   </div>
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import Vue from 'vue'
+import { Component } from 'vue-property-decorator'
+
+const WebPageProps = Vue.extend({
   props: {
-    fullHeight: {
-      type: Boolean,
-      default: false
-    }
+    fullHeight: { type: Boolean, default: false }
   }
-}
+})
+
+@Component
+export default class WebPage extends WebPageProps {}
 </script>
 
 <style lang="scss">

@@ -4,6 +4,14 @@
   </ul>
 </template>
 
+<script lang="ts">
+import Vue from 'vue'
+import { Component } from 'vue-property-decorator'
+
+@Component
+export default class List extends Vue {}
+</script>
+
 <style lang="scss" scoped>
 .list {
   font-size: 4rem;

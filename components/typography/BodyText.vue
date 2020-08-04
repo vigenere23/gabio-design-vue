@@ -4,12 +4,12 @@
   </GioBaseText>
 </template>
 
-<script>
-import darkable from '../../mixins/darkable'
+<script lang="ts">
+import { Component } from 'vue-property-decorator'
+import { Darkable } from '../../mixins/darkable'
 
-export default {
-  mixins: [darkable]
-}
+@Component
+export default class BodyText extends Darkable {}
 </script>
 
 <style lang="scss">

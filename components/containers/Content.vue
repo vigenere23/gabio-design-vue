@@ -8,19 +8,19 @@
   </div>
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import Vue from 'vue'
+import { Component } from 'vue-property-decorator'
+
+const ContentProps = Vue.extend({
   props: {
-    width: {
-      type: String,
-      required: false
-    },
-    noPadding: {
-      type: Boolean,
-      default: false
-    }
+    width: { type: String, required: false },
+    noPadding: { type: Boolean, default: false }
   }
-}
+})
+
+@Component
+export default class Content extends ContentProps {}
 </script>
 
 <style lang="scss">

@@ -8,25 +8,23 @@
   </section>
 </template>
 
-<script>
-import darkable from '../../mixins/darkable'
+<script lang="ts">
+import Vue from 'vue'
+import { Component } from 'vue-property-decorator'
+import { Darkable } from '../../mixins/darkable'
+import { mixins } from 'vue-class-component'
 
-export default {
-  mixins: [darkable],
+const SectionProps = Vue.extend({
   props: {
-    id: {
-      type: String,
-      required: false
-    },
-    noPadding: {
-      type: Boolean,
-      default: false
-    }
-  },
-  computed: {
-    computedId() {
-      return this.id ? `#${this.id}` : null
-    }
+    id: { type: String, required: false },
+    noPadding: { type: Boolean, default: false }
+  }
+})
+
+@Component
+export default class Section extends mixins(SectionProps, Darkable) {
+  get computedId(): string | null {
+    return this.id ? `#${this.id}` : null
   }
 }
 </script>

@@ -1,4 +1,6 @@
-export default {
+import Vue from 'vue'
+
+export const NoMarginable = Vue.extend({
   props: {
     noMargin: {
       type: Boolean,
@@ -12,4 +14,4 @@ export default {
       }
     }
   }
-}
+})

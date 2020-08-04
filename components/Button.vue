@@ -17,25 +17,18 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import darkable from '../mixins/darkable'
+import { Darkable } from '../mixins/darkable'
+import { mixins } from 'vue-class-component'
 
-export default Vue.extend({
-  mixins: [darkable],
+const ButtonProps = Vue.extend({
   props: {
-    href: {
-      type: String,
-      required: false
-    },
-    noMarginLeft: {
-      type: Boolean,
-      default: false
-    },
-    noMarginRight: {
-      type: Boolean,
-      default: false
-    }
+    href: { type: String, required: false },
+    noMarginLeft: { type: Boolean, default: false },
+    noMarginRight: { type: Boolean, default: false }
   }
 })
+
+export default class Button extends mixins(ButtonProps, Darkable) {}
 </script>
 
 <style lang="scss">

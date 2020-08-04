@@ -5,10 +5,10 @@
 </template>
 
 <script>
-import darkable from '../../mixins/darkable'
+import { Darkable } from '../../mixins/darkable'
 
 export default {
-  mixins: [darkable],
+  mixins: [Darkable],
   props: {
     type: {
       type: String,
@@ -20,9 +20,9 @@ export default {
   },
   computed: {
     typeClass() {
-      const classes = {}
-      classes[this.type] = true
-      return classes
+      return {
+        [this.type]: true
+      }
     }
   }
 }

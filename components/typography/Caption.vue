@@ -9,19 +9,25 @@
   </div>
 </template>
 
-<script>
-import darkable from '../../mixins/darkable'
-import noMarginable from '../../mixins/no-marginable'
+<script lang="ts">
+import Vue from 'vue'
+import { Component } from 'vue-property-decorator'
+import { Darkable } from '../../mixins/darkable'
+import { NoMarginable } from '../../mixins/no-marginable'
+import { mixins } from 'vue-class-component'
 
-export default {
-  mixins: [darkable, noMarginable],
+const CaptionProps = Vue.extend({
   props: {
-    noBorder: {
-      type: Boolean,
-      default: false
-    }
+    noBorder: { type: Boolean, default: false }
   }
-}
+})
+
+@Component
+export default class Caption extends mixins(
+  CaptionProps,
+  Darkable,
+  NoMarginable
+) {}
 </script>
 
 <style lang="scss">

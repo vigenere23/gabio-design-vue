@@ -4,6 +4,14 @@
   </li>
 </template>
 
+<script lang="ts">
+import Vue from 'vue'
+import { Component } from 'vue-property-decorator'
+
+@Component
+export default class ListItem extends Vue {}
+</script>
+
 <style lang="scss" scoped>
 .list-item {
   padding-left: 1.5em;

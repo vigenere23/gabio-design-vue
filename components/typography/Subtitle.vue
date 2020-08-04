@@ -4,14 +4,19 @@
   </div>
 </template>
 
-<script>
-import darkable from '../../mixins/darkable'
-import centerable from '../../mixins/centerable'
-import noMarginable from '../../mixins/no-marginable'
+<script lang="ts">
+import { Component } from 'vue-property-decorator'
+import { Darkable } from '../../mixins/darkable'
+import { Centerable } from '../../mixins/centerable'
+import { NoMarginable } from '../../mixins/no-marginable'
+import { mixins } from 'vue-class-component'
 
-export default {
-  mixins: [darkable, centerable, noMarginable]
-}
+@Component
+export default class Subtitle extends mixins(
+  Darkable,
+  Centerable,
+  NoMarginable
+) {}
 </script>
 
 <style lang="scss">
