@@ -9,7 +9,7 @@
     :href="href"
     @click="$emit('click')"
   >
-    <GioBaseText :dark="dark" type="primary" class="button__content">
+    <GioBaseText :dark="dark" type="primary" class="button-content">
       <slot></slot>
     </GioBaseText>
   </GioSmartLink>
@@ -91,7 +91,7 @@ export default class Button extends mixins(ButtonProps, Darkable) {}
     flex: 0 0 auto;
   }
 
-  &.__content {
+  .button-content {
     text-transform: uppercase;
 
     > :not(:first-child) {
