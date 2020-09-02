@@ -17,7 +17,7 @@
   ],
   "scripts": {
     "serve": "vue-cli-service serve dev/serve.ts",
-    "build": "npm run build:vue && npm run build:lib",
+    "build": "yarn build:vue && yarn build:lib",
     "build:vue": "vue-cli-service build --target lib --name gio --report src/entry.ts",
     "build:lib": "node ./scripts/build-lib.js"
   },
