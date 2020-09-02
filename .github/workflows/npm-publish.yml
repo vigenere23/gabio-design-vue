@@ -11,13 +11,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
 
-      - name: Install dependencies
-        run: yarn
-
-      - name: Build library
-        run: yarn build
-
-      - name: Publish if version has been updated
+      - name: Publish if new version (will freshly build)
         uses: pascalgn/npm-publish-action@06e0830ea83eea10ed4a62654eeaedafb8bf50fc
         with:
           tag_name: 'v%s'
