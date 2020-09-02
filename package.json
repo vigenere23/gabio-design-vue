@@ -1,6 +1,6 @@
 {
   "name": "@vigenere23/gio",
-  "version": "0.0.11",
+  "version": "0.0.12",
   "publishConfig": {
     "access": "public"
   },
@@ -18,7 +18,7 @@
   "scripts": {
     "serve": "vue-cli-service serve dev/serve.ts",
     "build": "npm run build:vue && npm run build:lib",
-    "build:vue": "vue-cli-service build --target lib --name gio src/entry.ts",
+    "build:vue": "vue-cli-service build --target lib --name gio --report src/entry.ts",
     "build:lib": "node ./scripts/build-lib.js"
   },
   "dependencies": {
