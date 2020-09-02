@@ -1,6 +1,6 @@
 {
   "name": "@vigenere23/gio",
-  "version": "0.0.13",
+  "version": "1.0.0",
   "publishConfig": {
     "access": "public"
   },
