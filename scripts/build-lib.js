@@ -9,6 +9,6 @@ const styleSrcPath = path.join(rootDir, './src/styles')
 const styleOutPath = path.join(rootDir, './lib/styles')
 
 fs.rmdir(libPath, () => {
-  process.exec('tsc')
+  process.exec('tsc -p src')
   process.exec(`cp -r ${styleSrcPath} ${styleOutPath}`)
 })
