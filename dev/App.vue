@@ -21,7 +21,11 @@ export default Vue.extend({
         ></GioCodeBlock>
       </GioContent>
     </GioSection>
-    <GioSection dark> </GioSection>
+    <GioSection dark>
+      <GioContent>
+        <GioCard></GioCard>
+      </GioContent>
+    </GioSection>
   </div>
 </template>
 
