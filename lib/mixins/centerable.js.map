@@ -1,1 +1,0 @@
-{"version":3,"file":"centerable.js","sourceRoot":"","sources":["../../src/mixins/centerable.ts"],"names":[],"mappings":"AAAA,OAAO,GAAG,MAAM,KAAK,CAAA;AAErB,MAAM,CAAC,MAAM,UAAU,GAAG,GAAG,CAAC,MAAM,CAAC;IACnC,KAAK,EAAE;QACL,QAAQ,EAAE;YACR,IAAI,EAAE,OAAO;YACb,OAAO,EAAE,KAAK;SACf;KACF;CACF,CAAC,CAAA"}

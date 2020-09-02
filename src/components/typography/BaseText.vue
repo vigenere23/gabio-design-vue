@@ -13,7 +13,7 @@ export default {
     type: {
       type: String,
       default: 'secondary',
-      validator: value => {
+      validator: (value) => {
         return ['primary', 'secondary', 'tertiary'].includes(value)
       }
     }

@@ -1,37 +1,17 @@
-import Button  from './Button.vue'
-import SmartLink from './SmartLink.vue'
-import Content from './containers/Content.vue'
-import LetterPage from './containers/LetterPage.vue'
-import Section from './containers/Section.vue'
-import WebPage from './containers/WebPage.vue'
-import BaseText from './typography/BaseText.vue'
-import BodyText from './typography/BodyText.vue'
-import Caption from './typography/Caption.vue'
-import CodeBlock from './typography/CodeBlock.vue'
-import FaIcon from './typography/FaIcon.vue'
-import Heading from './typography/Heading.vue'
-import InlineCode from './typography/InlineCode.vue'
-import List from './typography/List.vue'
-import ListItem from './typography/ListItem.vue'
-import Subtitle from './typography/Subtitle.vue'
-import Title from './typography/Title.vue'
-
-export {
-  Button,
-  SmartLink,
-  Content,
-  LetterPage,
-  Section,
-  WebPage,
-  BaseText,
-  BodyText,
-  Caption,
-  CodeBlock,
-  FaIcon,
-  Heading,
-  InlineCode,
-  List,
-  ListItem,
-  Subtitle,
-  Title
-}
+export { default as Button } from './Button.vue'
+export { default as SmartLink } from './SmartLink.vue'
+export { default as Content } from './containers/Content.vue'
+export { default as LetterPage } from './containers/LetterPage.vue'
+export { default as Section } from './containers/Section.vue'
+export { default as WebPage } from './containers/WebPage.vue'
+export { default as BaseText } from './typography/BaseText.vue'
+export { default as BodyText } from './typography/BodyText.vue'
+export { default as Caption } from './typography/Caption.vue'
+export { default as CodeBlock } from './typography/CodeBlock.vue'
+export { default as FaIcon } from './typography/FaIcon.vue'
+export { default as Heading } from './typography/Heading.vue'
+export { default as InlineCode } from './typography/InlineCode.vue'
+export { default as List } from './typography/List.vue'
+export { default as ListItem } from './typography/ListItem.vue'
+export { default as Subtitle } from './typography/Subtitle.vue'
+export { default as Title } from './typography/Title.vue'
