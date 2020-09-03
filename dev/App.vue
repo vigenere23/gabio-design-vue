@@ -4,6 +4,16 @@
       <GioContent>
         <GioHeading :level="1">Component showcase</GioHeading>
         <Test></Test>
+        <GioBaseText dark>
+          <GioTag>interface</GioTag>
+          <GioTag>interface</GioTag>
+          <GioTag>interface</GioTag>
+        </GioBaseText>
+        <GioHeading dark>
+          <GioTag>interface</GioTag>
+          <GioTag>interface</GioTag>
+          <GioTag>interface</GioTag>
+        </GioHeading>
         <GioCodeBlock
           language="js"
           code="import gio from '@vigenere23/gio';"
