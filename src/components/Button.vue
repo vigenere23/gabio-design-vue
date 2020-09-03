@@ -11,9 +11,7 @@
     @click="$emit('click')"
   >
     <GioBaseText :dark="dark" type="primary" class="button-content">
-      <span class="button-content-wrapper">
-        <slot></slot>
-      </span>
+      <slot></slot>
     </GioBaseText>
   </GioSmartLink>
 </template>
@@ -71,7 +69,7 @@ export default class Button extends mixins(ButtonProps, Darkable) {
     padding: 0 2rem;
     border-radius: $border-radius-medium;
 
-    .button-content-wrapper {
+    .button-content > * {
       font-size: 0.9em;
     }
   }
