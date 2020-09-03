@@ -6,7 +6,7 @@
 import Vue from 'vue'
 import { Component } from 'vue-property-decorator'
 
-const FaIconProps = Vue.extend({
+const IconProps = Vue.extend({
   props: {
     icon: {
       type: String,
@@ -20,7 +20,7 @@ const FaIconProps = Vue.extend({
 })
 
 @Component
-export default class FaIcon extends FaIconProps {
+export default class Icon extends IconProps {
   get computedIcon(): string[] | string {
     return this.brand ? ['fab', this.icon] : this.icon
   }

@@ -1,6 +1,11 @@
 import Vue, { VNode } from 'vue'
 import App from './App.vue'
 import gio from '../src/vue/entry'
+import { ComponentsRegisterer } from './initializers/components-registerer'
+import { FontAwesomeRegisterer } from './initializers/font-awesome-registerer'
+
+new ComponentsRegisterer().register()
+new FontAwesomeRegisterer().register()
 
 Vue.config.productionTip = false
 Vue.use(gio)

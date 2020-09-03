@@ -1,15 +1,3 @@
-<script lang="ts">
-import Vue from 'vue'
-import Test from './components/Test.vue'
-
-export default Vue.extend({
-  name: 'App',
-  components: {
-    Test
-  }
-})
-</script>
-
 <template>
   <div id="app">
     <GioSection>
@@ -20,14 +8,15 @@ export default Vue.extend({
           language="js"
           code="import gio from '@vigenere23/gio';"
         ></GioCodeBlock>
-        <GioButton dark size="small"><span>Hello world</span></GioButton>
+        <GioButton dark size="small">
+          <span>Hello world</span>
+          <GioIcon icon="envelope"></GioIcon>
+        </GioButton>
         <GioButton dark><span>Hello world</span></GioButton>
       </GioContent>
     </GioSection>
     <GioSection dark>
-      <GioContent>
-        <GioCard></GioCard>
-      </GioContent>
+      <GioContent> </GioContent>
     </GioSection>
   </div>
 </template>
