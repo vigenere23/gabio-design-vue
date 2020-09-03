@@ -11,7 +11,7 @@
 <script lang="ts">
 import Vue from 'vue'
 import { Component } from 'vue-property-decorator'
-import { Darkable } from '../../../lib/mixins/darkable'
+import { Darkable } from '@/lib/mixins/darkable'
 import { mixins } from 'vue-class-component'
 
 type BackgroundSize = 'cover' | 'contain'
