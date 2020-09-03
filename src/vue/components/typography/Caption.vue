@@ -12,8 +12,8 @@
 <script lang="ts">
 import Vue from 'vue'
 import { Component } from 'vue-property-decorator'
-import { Darkable } from '../../mixins/darkable'
-import { NoMarginable } from '../../mixins/no-marginable'
+import { Darkable } from '../../../lib/mixins/darkable'
+import { NoMarginable } from '../../../lib/mixins/no-marginable'
 import { mixins } from 'vue-class-component'
 
 const CaptionProps = Vue.extend({
@@ -31,8 +31,8 @@ export default class Caption extends mixins(
 </script>
 
 <style lang="scss">
-@import '~@/styles/colors';
-@import '~@/styles/sizes';
+@import '~@/lib/styles/colors';
+@import '~@/lib/styles/sizes';
 
 .caption {
   display: block;

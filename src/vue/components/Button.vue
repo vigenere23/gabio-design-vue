@@ -18,7 +18,7 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import { Darkable } from '../mixins/darkable'
+import { Darkable } from '../../lib/mixins/darkable'
 import { mixins } from 'vue-class-component'
 import { Component, Prop } from 'vue-property-decorator'
 
@@ -45,9 +45,9 @@ export default class Button extends mixins(ButtonProps, Darkable) {
 </script>
 
 <style lang="scss">
-@import '~@/styles/colors';
-@import '~@/styles/transitions';
-@import '~@/styles/sizes';
+@import '~@/lib/styles/colors';
+@import '~@/lib/styles/transitions';
+@import '~@/lib/styles/sizes';
 
 .button {
   display: flex;

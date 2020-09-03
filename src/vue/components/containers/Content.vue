@@ -24,8 +24,8 @@ export default class Content extends ContentProps {}
 </script>
 
 <style lang="scss">
-@import '~@/styles/colors';
-@import '~@/styles/sizes';
+@import '~@/lib/styles/colors';
+@import '~@/lib/styles/sizes';
 
 .content {
   width: 100%;

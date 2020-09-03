@@ -6,15 +6,15 @@
 
 <script lang="ts">
 import { Component } from 'vue-property-decorator'
-import { Darkable } from '../../mixins/darkable'
+import { Darkable } from '../../../lib/mixins/darkable'
 
 @Component
 export default class BodyText extends Darkable {}
 </script>
 
 <style lang="scss">
-@import '~@/styles/colors';
-@import '~@/styles/sizes';
+@import '~@/lib/styles/colors';
+@import '~@/lib/styles/sizes';
 
 .body-text {
   line-height: 1.6em;

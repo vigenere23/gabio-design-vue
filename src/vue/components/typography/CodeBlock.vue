@@ -46,10 +46,10 @@ export default class CodeBlocks extends CodeBlockProps {
 </script>
 
 <style lang="scss">
-@import '~@/styles/code-themes/one-dark-prism';
-@import '~@/styles/fonts';
-@import '~@/styles/colors';
-@import '~@/styles/sizes';
+@import '~@/lib/styles/code-themes/one-dark-prism';
+@import '~@/lib/styles/fonts';
+@import '~@/lib/styles/colors';
+@import '~@/lib/styles/sizes';
 
 .code-block {
   font-size: 3.5rem;

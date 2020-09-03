@@ -5,10 +5,12 @@ const process = require('child_process')
 
 const rootDir = path.join(__dirname, '../')
 const libPath = path.join(rootDir, './lib')
-const styleSrcPath = path.join(rootDir, './src/styles')
+const styleSrcPath = path.join(rootDir, './src/lib/styles')
 const styleOutPath = path.join(rootDir, './lib/styles')
 
 fs.rmdir(libPath, () => {
-  process.exec('tsc -p src')
-  process.exec(`cp -r ${styleSrcPath} ${styleOutPath}`)
+  process.exec('tsc -p src/lib', (err) => {
+    if (err) throw err
+    process.exec(`cp -r ${styleSrcPath} ${styleOutPath}`)
+  })
 })

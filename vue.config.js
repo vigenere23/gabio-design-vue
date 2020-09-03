@@ -11,7 +11,7 @@ module.exports = {
   },
   chainWebpack: (config) => {
     config.plugin('fork-ts-checker').tap((args) => {
-      args[0].tsconfig = './src/tsconfig.json'
+      args[0].tsconfig = './src/vue/tsconfig.json'
       return args
     })
   }

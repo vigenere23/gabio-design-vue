@@ -4,33 +4,39 @@
   </div>
 </template>
 
-<script>
-import { Darkable } from '../../mixins/darkable'
+<script lang="ts">
+import Vue from 'vue'
+import { Component } from 'vue-property-decorator'
+import { Darkable } from '../../../lib/mixins/darkable'
+import { mixins } from 'vue-class-component'
 
-export default {
-  mixins: [Darkable],
+type TextType = 'primary' | 'secondary' | 'tertiary'
+
+const BaseTextProps = Vue.extend({
   props: {
     type: {
       type: String,
       default: 'secondary',
-      validator: (value) => {
+      validator: (value: TextType): boolean => {
         return ['primary', 'secondary', 'tertiary'].includes(value)
       }
     }
-  },
-  computed: {
-    typeClass() {
-      return {
-        [this.type]: true
-      }
+  }
+})
+
+@Component
+export default class BaseText extends mixins(BaseTextProps, Darkable) {
+  get typeClass(): { [key: string]: boolean } {
+    return {
+      [this.type]: true
     }
   }
 }
 </script>
 
 <style lang="scss">
-@import '~@/styles/colors';
-@import '~@/styles/fonts';
+@import '~@/lib/styles/colors';
+@import '~@/lib/styles/fonts';
 
 .base-text {
   font-family: $classic-font;

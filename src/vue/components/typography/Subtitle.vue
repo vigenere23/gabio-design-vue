@@ -6,9 +6,9 @@
 
 <script lang="ts">
 import { Component } from 'vue-property-decorator'
-import { Darkable } from '../../mixins/darkable'
-import { Centerable } from '../../mixins/centerable'
-import { NoMarginable } from '../../mixins/no-marginable'
+import { Darkable } from '../../../lib/mixins/darkable'
+import { Centerable } from '../../../lib/mixins/centerable'
+import { NoMarginable } from '../../../lib/mixins/no-marginable'
 import { mixins } from 'vue-class-component'
 
 @Component
@@ -20,9 +20,9 @@ export default class Subtitle extends mixins(
 </script>
 
 <style lang="scss">
-@import '~@/styles/fonts';
-@import '~@/styles/colors';
-@import '~@/styles/sizes';
+@import '~@/lib/styles/fonts';
+@import '~@/lib/styles/colors';
+@import '~@/lib/styles/sizes';
 
 .subtitle {
   font-family: $special-font;

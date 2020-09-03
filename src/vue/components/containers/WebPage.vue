@@ -19,7 +19,7 @@ export default class WebPage extends WebPageProps {}
 </script>
 
 <style lang="scss">
-@import '~@/styles/sizes';
+@import '~@/lib/styles/sizes';
 
 .web-page {
   width: 100%;

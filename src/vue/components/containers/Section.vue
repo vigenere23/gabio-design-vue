@@ -11,7 +11,7 @@
 <script lang="ts">
 import Vue from 'vue'
 import { Component } from 'vue-property-decorator'
-import { Darkable } from '../../mixins/darkable'
+import { Darkable } from '../../../lib/mixins/darkable'
 import { mixins } from 'vue-class-component'
 
 const SectionProps = Vue.extend({
@@ -30,7 +30,7 @@ export default class Section extends mixins(SectionProps, Darkable) {
 </script>
 
 <style lang="scss">
-@import '~@/styles/colors';
+@import '~@/lib/styles/colors';
 
 .section {
   width: 100%;

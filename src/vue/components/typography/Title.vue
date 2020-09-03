@@ -11,9 +11,9 @@
 <script lang="ts">
 import Vue from 'vue'
 import { Component } from 'vue-property-decorator'
-import { Darkable } from '../../mixins/darkable'
-import { Centerable } from '../../mixins/centerable'
-import { NoMarginable } from '../../mixins/no-marginable'
+import { Darkable } from '../../../lib/mixins/darkable'
+import { Centerable } from '../../../lib/mixins/centerable'
+import { NoMarginable } from '../../../lib/mixins/no-marginable'
 import { mixins } from 'vue-class-component'
 
 const TitleProps = Vue.extend({
@@ -35,8 +35,8 @@ export default class Title extends mixins(
 </script>
 
 <style lang="scss">
-@import '~@/styles/fonts';
-@import '~@/styles/colors';
+@import '~@/lib/styles/fonts';
+@import '~@/lib/styles/colors';
 
 .title {
   font-family: $special-font;

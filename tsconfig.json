@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    "target": "esnext",
+    "module": "esnext",
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "importHelpers": true,
+    "moduleResolution": "node",
+    "experimentalDecorators": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "sourceMap": true,
+    "types": ["node", "vue", "webpack-env"],
+    "lib": ["esnext", "dom", "dom.iterable", "scripthost"]
+  },
+  "exclude": [
+    "./node_modules",
+    "./build",
+    "./dev",
+    "./dist",
+    "./lib",
+    "./scripts"
+  ]
+}

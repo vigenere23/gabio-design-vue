@@ -1,38 +1,10 @@
 {
+  "extends": "../tsconfig.json",
   "compilerOptions": {
-    "target": "esnext",
-    "module": "esnext",
-    "strict": true,
-    "declaration": true,
-    "declarationDir": "../lib",
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "importHelpers": true,
-    "moduleResolution": "node",
-    "experimentalDecorators": true,
-    "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
-    "sourceMap": true,
-    "types": ["node", "vue", "webpack-env"],
     "baseUrl": ".",
     "rootDir": ".",
-    "outDir": "../lib",
     "paths": {
       "@/*": ["./*"]
-    },
-    "lib": ["esnext", "dom", "dom.iterable", "scripthost"]
-  },
-  "include": ["."],
-  "exclude": [
-    "../node_modules",
-    "../build",
-    "../dev",
-    "../dist",
-    "../lib",
-    "../scripts",
-    "./initializers",
-    "./components",
-    "./styles",
-    "./entry.ts"
-  ]
+    }
+  }
 }

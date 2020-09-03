@@ -4,32 +4,43 @@
   </div>
 </template>
 
-<script>
-import { Darkable } from '../../mixins/darkable'
-import { NoMarginable } from '../../mixins/no-marginable'
+<script lang="ts">
+import Vue from 'vue'
+import { Component } from 'vue-property-decorator'
+import { Darkable } from '../../../lib/mixins/darkable'
+import { NoMarginable } from '../../../lib/mixins/no-marginable'
+import { mixins } from 'vue-class-component'
 
-export default {
+type HeadingLevel = 1 | 2 | 3 | 4
+
+const HeadingProps = Vue.extend({
   mixins: [Darkable, NoMarginable],
   props: {
     level: {
       type: Number,
       default: 2,
-      validator: value => [1, 2, 3, 4].includes(value)
+      validator: (value: HeadingLevel): boolean => [1, 2, 3, 4].includes(value)
     }
-  },
-  computed: {
-    levelClass() {
-      return {
-        [`level-${this.level}`]: true
-      }
+  }
+})
+
+@Component
+export default class Heading extends mixins(
+  HeadingProps,
+  Darkable,
+  NoMarginable
+) {
+  get levelClass(): { [key: string]: boolean } {
+    return {
+      [`level-${this.level}`]: true
     }
   }
 }
 </script>
 
 <style lang="scss">
-@import '~@/styles/fonts';
-@import '~@/styles/colors';
+@import '~@/lib/styles/fonts';
+@import '~@/lib/styles/colors';
 
 .heading {
   font-family: $special-font;

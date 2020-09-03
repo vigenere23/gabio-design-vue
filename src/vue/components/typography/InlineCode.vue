@@ -6,16 +6,16 @@
 
 <script lang="ts">
 import { Component } from 'vue-property-decorator'
-import { Darkable } from '../../mixins/darkable'
+import { Darkable } from '../../../lib/mixins/darkable'
 
 @Component
 export default class InlineCode extends Darkable {}
 </script>
 
 <style lang="scss">
-@import '~@/styles/colors';
-@import '~@/styles/fonts';
-@import '~@/styles/sizes';
+@import '~@/lib/styles/colors';
+@import '~@/lib/styles/fonts';
+@import '~@/lib/styles/sizes';
 
 .inline-code {
   padding: 0.5rem 1rem;

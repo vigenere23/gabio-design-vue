@@ -1,5 +1,5 @@
 import _Vue from 'vue'
-import * as components from '@/components'
+import * as components from '@/vue/components'
 
 const COMPONENT_NAME_PREFIX = 'Gio'
 

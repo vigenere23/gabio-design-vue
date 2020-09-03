@@ -18,11 +18,14 @@
   "scripts": {
     "serve": "vue-cli-service serve dev/main.ts",
     "build": "yarn build:vue && yarn build:lib",
-    "build:vue": "vue-cli-service build --target lib --name gio --report src/entry.ts",
+    "build:vue": "vue-cli-service build --target lib --name gio --report src/vue/entry.ts",
     "build:lib": "node ./scripts/build-lib.js",
     "prepublishOnly": "yarn build"
   },
   "dependencies": {
+    "@openfonts/sen_latin": "^1.0.3",
+    "typeface-fira-code": "^1.1.4",
+    "typeface-roboto": "^0.0.75",
     "vue": "^2.6.11",
     "vue-class-component": "^7.2.5",
     "vue-prism-component": "^1.2.0",

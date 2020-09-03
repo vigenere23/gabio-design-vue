@@ -1,7 +1,11 @@
 import _Vue, { PluginFunction } from 'vue'
-import { ComponentsRegisterer } from '@/initializers/components-registerer'
-import { PrismRegisterer } from '@/initializers/prism-registerer'
-import './styles/reset.scss'
+import { ComponentsRegisterer } from '@/vue/initializers/components-registerer'
+import { PrismRegisterer } from '@/vue/initializers/prism-registerer'
+
+import '@openfonts/sen_latin'
+import 'typeface-roboto'
+import 'typeface-fira-code'
+import '@/lib/styles/reset.scss'
 
 // Define typescript interfaces for autoinstaller
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
