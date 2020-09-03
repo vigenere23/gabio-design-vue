@@ -66,7 +66,7 @@ export default class Button extends mixins(ButtonProps, Darkable) {
 
   &.small {
     height: 8rem;
-    padding: 0 2rem;
+    padding: 0 2.5rem;
     border-radius: $border-radius-medium;
 
     .button-content > * {
