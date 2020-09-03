@@ -6,6 +6,7 @@ import {
   faEnvelope,
   faPaintBrush,
   faHome,
+  faHeart,
   faExternalLinkAlt
 } from '@fortawesome/free-solid-svg-icons'
 import {
@@ -26,6 +27,7 @@ export class FontAwesomeRegisterer {
       faEnvelope,
       faPaintBrush,
       faHome,
+      faHeart,
       faExternalLinkAlt
     )
     Vue.component('fa-icon', FontAwesomeIcon)

@@ -22,3 +22,9 @@ const BaseImageProps = Vue.extend({
 @Component
 export default class BaseImage extends BaseImageProps {}
 </script>
+
+<style lang="scss">
+img {
+  display: block;
+}
+</style>

@@ -2,12 +2,17 @@
   <div class="captioned-image" :class="{ dark }" :style="{ width }">
     <GioBaseImage
       class="captioned-image__image"
-      :class="{ bordered: !caption }"
       :src="src"
       :caption="caption"
     />
     <template v-if="caption">
-      <GioCaption no-margin no-border :dark="dark">{{ caption }}</GioCaption>
+      <GioCaption
+        class="captioned-image__caption"
+        no-margin
+        no-border
+        :dark="dark"
+        >{{ caption }}</GioCaption
+      >
     </template>
   </div>
 </template>
@@ -49,9 +54,15 @@ export default class CaptionedImage extends mixins(
 .captioned-image {
   width: 100%;
   margin: 16px auto;
-  background-color: white;
-  border: solid 3px $accent-light;
   border-radius: $border-radius-medium;
+
+  &__image {
+    display: block;
+    width: 100%;
+    border-radius: $border-radius-small;
+    background-color: white;
+    border: solid 3px $accent-light;
+  }
 
   &.dark {
     .captioned-image__image {
@@ -59,14 +70,8 @@ export default class CaptionedImage extends mixins(
     }
   }
 
-  &__image {
-    display: block;
-    width: 100%;
-    border-radius: $border-radius-small;
-
-    &:not(.bordered) {
-      border-bottom: none;
-    }
+  &__caption {
+    margin-top: -3px;
   }
 }
 </style>

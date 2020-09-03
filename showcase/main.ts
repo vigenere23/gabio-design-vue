@@ -1,5 +1,6 @@
 import Vue, { VNode } from 'vue'
 import App from './App.vue'
+import router from './router'
 import gio from '../src/vue/entry'
 import { ComponentsRegisterer } from './initializers/components-registerer'
 import { FontAwesomeRegisterer } from './initializers/font-awesome-registerer'
@@ -11,5 +12,6 @@ Vue.config.productionTip = false
 Vue.use(gio)
 
 new Vue({
+  router,
   render: (h): VNode => h(App)
 }).$mount('#app')

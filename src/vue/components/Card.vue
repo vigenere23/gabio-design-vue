@@ -17,7 +17,7 @@
       <GioHeading class="card__title" :level="3" :dark="dark">{{
         title
       }}</GioHeading>
-      <GioBaseText :dark="!dark" class="card__tags">
+      <GioBaseText type="primary" :dark="!dark" class="card__tags">
         <GioTag v-for="tag in tags" :key="tag" :dark="dark">{{ tag }}</GioTag>
       </GioBaseText>
       <GioBaseText class="card__desc" :dark="dark">{{ desc }}</GioBaseText>

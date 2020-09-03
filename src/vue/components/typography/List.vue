@@ -1,5 +1,5 @@
 <template>
-  <ul class="list">
+  <ul class="list" :class="{ indent }">
     <slot></slot>
   </ul>
 </template>
@@ -8,15 +8,25 @@
 import Vue from 'vue'
 import { Component } from 'vue-property-decorator'
 
-@Component
+@Component({
+  props: {
+    indent: {
+      type: Boolean,
+      default: false
+    }
+  }
+})
 export default class List extends Vue {}
 </script>
 
 <style lang="scss" scoped>
 .list {
-  font-size: 4rem;
   line-height: 1.5em;
   list-style: none;
   padding: 0;
+
+  &.indent {
+    margin-left: 6rem;
+  }
 }
 </style>
