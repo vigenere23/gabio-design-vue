@@ -3,7 +3,7 @@
     <GioBaseImage
       class="captioned-image__image"
       :class="{ bordered: !caption }"
-      :src="imageUrl"
+      :src="src"
       :caption="caption"
     />
     <template v-if="caption">
@@ -49,7 +49,7 @@ export default class CaptionedImage extends mixins(
 .captioned-image {
   width: 100%;
   margin: 16px auto;
-  background-color: $accent-light;
+  background-color: white;
   border: solid 3px $accent-light;
   border-radius: $border-radius-medium;
 
