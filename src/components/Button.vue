@@ -4,13 +4,16 @@
     :class="{
       dark,
       'no-margin-left': noMarginLeft,
-      'no-margin-right': noMarginRight
+      'no-margin-right': noMarginRight,
+      ...sizeClass
     }"
     :href="href"
     @click="$emit('click')"
   >
     <GioBaseText :dark="dark" type="primary" class="button-content">
-      <slot></slot>
+      <span class="button-content-wrapper">
+        <slot></slot>
+      </span>
     </GioBaseText>
   </GioSmartLink>
 </template>
@@ -19,6 +22,9 @@
 import Vue from 'vue'
 import { Darkable } from '../mixins/darkable'
 import { mixins } from 'vue-class-component'
+import { Component, Prop } from 'vue-property-decorator'
+
+type Size = 'small' | 'medium'
 
 const ButtonProps = Vue.extend({
   props: {
@@ -28,7 +34,16 @@ const ButtonProps = Vue.extend({
   }
 })
 
-export default class Button extends mixins(ButtonProps, Darkable) {}
+@Component
+export default class Button extends mixins(ButtonProps, Darkable) {
+  @Prop({ type: String, default: 'medium' }) size!: Size
+
+  get sizeClass(): { [key: string]: boolean } {
+    return {
+      [this.size]: true
+    }
+  }
+}
 </script>
 
 <style lang="scss">
@@ -37,18 +52,29 @@ export default class Button extends mixins(ButtonProps, Darkable) {}
 @import '~@/styles/sizes';
 
 .button {
-  height: 9rem;
-  width: fit-content;
   display: flex;
   align-items: center;
+  width: fit-content;
   background-color: $accent-light;
   color: $primary-text-dark;
-  padding: 0 3rem;
-  border-radius: $border-radius-medium;
   cursor: pointer;
   @include transition(base, out, color, background-color);
-  display: flex;
-  align-items: center;
+
+  &.medium {
+    height: 9rem;
+    padding: 0 3rem;
+    border-radius: $border-radius-medium;
+  }
+
+  &.small {
+    height: 8rem;
+    padding: 0 2rem;
+    border-radius: $border-radius-medium;
+
+    .button-content-wrapper {
+      font-size: 0.9em;
+    }
+  }
 
   &:not(.no-margin-left) {
     margin-left: 2rem;

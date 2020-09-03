@@ -14,11 +14,14 @@ export default Vue.extend({
   <div id="app">
     <GioSection>
       <GioContent>
+        <GioHeading :level="1">Component showcase</GioHeading>
         <Test></Test>
         <GioCodeBlock
           language="js"
           code="import gio from '@vigenere23/gio';"
         ></GioCodeBlock>
+        <GioButton dark size="small"><span>Hello world</span></GioButton>
+        <GioButton dark><span>Hello world</span></GioButton>
       </GioContent>
     </GioSection>
     <GioSection dark>
