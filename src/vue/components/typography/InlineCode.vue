@@ -6,7 +6,7 @@
 
 <script lang="ts">
 import { Component } from 'vue-property-decorator'
-import { Darkable } from '../../../lib/mixins/darkable'
+import { Darkable } from '@/lib/mixins/darkable'
 
 @Component
 export default class InlineCode extends Darkable {}

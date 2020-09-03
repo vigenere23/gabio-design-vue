@@ -18,7 +18,7 @@
 </template>
 
 <script lang="ts">
-import { Darkable } from '../../../lib/mixins/darkable'
+import { Darkable } from '@/lib/mixins/darkable'
 import Vue from 'vue'
 import { Component } from 'vue-property-decorator'
 import { mixins } from 'vue-class-component'

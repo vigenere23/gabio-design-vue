@@ -12,8 +12,8 @@
 <script lang="ts">
 import Vue from 'vue'
 import { Component } from 'vue-property-decorator'
-import { Darkable } from '../../../lib/mixins/darkable'
-import { NoMarginable } from '../../../lib/mixins/no-marginable'
+import { Darkable } from '@/lib/mixins/darkable'
+import { NoMarginable } from '@/lib/mixins/no-marginable'
 import { mixins } from 'vue-class-component'
 
 const CaptionProps = Vue.extend({

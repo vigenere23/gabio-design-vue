@@ -5,5 +5,5 @@
     "declarationDir": "../..",
     "outDir": "../.."
   },
-  "include": ["./**/*"]
+  "include": ["./**/*.ts"]
 }
