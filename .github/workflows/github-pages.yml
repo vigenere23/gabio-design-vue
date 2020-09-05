@@ -1,0 +1,30 @@
+name: Github pages
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checking out
+        uses: actions/checkout@v2
+
+      - name: Installing dependencies
+        run: yarn
+
+      - name: Building for production
+        run: yarn build:showcase
+
+      - name: Deploying to github-pages
+        run: |
+          cd dist-showcase
+          git init
+          git config user.name "vigenere23"
+          git config user.email "lolgab1@hotmail.com"
+          git add -fA
+          git commit -m 'deploy'
+          git push -f https://x-access-token:${{ secrets.GITHUBIO_DEPLOY }}@github.com/vigenere23/gio-library-showcase master
