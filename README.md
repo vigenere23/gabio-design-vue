@@ -18,7 +18,7 @@ You can then use the components without importing them.
 
 ## Showcase
 
-There is no showcase available for now. Please refer to the [`src/components/`](./src/components) folder to know more about the components.
+<http://vigenere23.github.io/gio-library-showcase>
 
 ## Documentation
 
