@@ -16,12 +16,11 @@
     "gio.d.ts"
   ],
   "scripts": {
-    "serve": "vue-cli-service serve showcase/main.ts",
     "build": "yarn build:vue && yarn build:lib",
     "build:vue": "vue-cli-service build --target lib --name gio --dest dist --report src/vue/entry.ts",
     "build:lib": "node ./scripts/build-lib.js",
-    "build:showcase": "vue-cli-service build --dest dist-showcase showcase/main.ts && yarn fix-dist-showcase",
-    "fix-dist-showcase": "sed -i 's/href=\\//href=\\.\\//g' dist-showcase/index.html && sed -i 's/src=\\//src=\\.\\//g' dist-showcase/index.html",
+    "build:showcase": "vue-cli-service build --dest dist-showcase showcase/main.ts",
+    "serve:showcase": "vue-cli-service serve showcase/main.ts",
     "prepublishOnly": "yarn build"
   },
   "dependencies": {
