@@ -27,7 +27,7 @@ export default class GioBodyText extends mixins(Darkable, NoMarginable) {}
 .gio-body-text {
   line-height: 1.8em;
   text-align: justify;
-  font-size: 4.25rem;
+  font-size: 4.5rem;
 
   &:not(.no-margin) {
     @include text-margin;
