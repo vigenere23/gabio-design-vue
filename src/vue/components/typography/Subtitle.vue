@@ -1,5 +1,5 @@
 <template>
-  <div class="subtitle" :class="{ dark, centered, ...noMarginClass }">
+  <div class="gio-subtitle" :class="{ dark, centered, ...noMarginClass }">
     <slot />
   </div>
 </template>
@@ -11,8 +11,10 @@ import { Centerable } from '@/lib/mixins/centerable'
 import { NoMarginable } from '@/lib/mixins/no-marginable'
 import { mixins } from 'vue-class-component'
 
-@Component
-export default class Subtitle extends mixins(
+@Component({
+  name: 'GioSubtitle'
+})
+export default class GioSubtitle extends mixins(
   Darkable,
   Centerable,
   NoMarginable
@@ -24,7 +26,7 @@ export default class Subtitle extends mixins(
 @import '~@/lib/styles/colors';
 @import '~@/lib/styles/sizes';
 
-.subtitle {
+.gio-subtitle {
   font-family: $special-font;
   font-size: 5.5rem;
   font-weight: 700;

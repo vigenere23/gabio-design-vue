@@ -1,5 +1,5 @@
 <template>
-  <GioBaseText class="body-text" :dark="dark">
+  <GioBaseText class="gio-body-text" :dark="dark">
     <slot />
   </GioBaseText>
 </template>
@@ -8,15 +8,17 @@
 import { Component } from 'vue-property-decorator'
 import { Darkable } from '@/lib/mixins/darkable'
 
-@Component
-export default class BodyText extends Darkable {}
+@Component({
+  name: 'GioBodyText'
+})
+export default class GioBodyText extends Darkable {}
 </script>
 
 <style lang="scss">
 @import '~@/lib/styles/colors';
 @import '~@/lib/styles/sizes';
 
-.body-text {
+.gio-body-text {
   line-height: 1.6em;
   text-align: justify;
   @include text-margin;

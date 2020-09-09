@@ -1,12 +1,16 @@
 <template>
-  <div class="code-block">
-    <div class="code-block__top-bar">
-      <div class="code-block__top-bar__window-buttons">
-        <div class="code-block__top-bar__window-buttons__red" />
-        <div class="code-block__top-bar__window-buttons__yellow" />
-        <div class="code-block__top-bar__window-buttons__green" />
+  <div class="gio-code-block">
+    <div class="gio-code-block__top-bar">
+      <div class="gio-code-block__top-bar__window-buttons">
+        <div class="gio-code-block__top-bar__window-buttons__red" />
+        <div class="gio-code-block__top-bar__window-buttons__yellow" />
+        <div class="gio-code-block__top-bar__window-buttons__green" />
       </div>
-      <GioBaseText dark type="secondary">
+      <GioBaseText
+        dark
+        type="secondary"
+        class="gio-code-block__top-bar__language"
+      >
         {{ language }}
       </GioBaseText>
     </div>
@@ -24,7 +28,7 @@
 import Vue from 'vue'
 import { Component } from 'vue-property-decorator'
 
-const CodeBlockProps = Vue.extend({
+const Props = Vue.extend({
   props: {
     language: {
       type: String,
@@ -37,8 +41,10 @@ const CodeBlockProps = Vue.extend({
   }
 })
 
-@Component
-export default class CodeBlocks extends CodeBlockProps {
+@Component({
+  name: 'GioCodeBlock'
+})
+export default class GioCodeBlocks extends Props {
   get decodedCode(): string {
     return decodeURI(this.code)
   }
@@ -51,7 +57,7 @@ export default class CodeBlocks extends CodeBlockProps {
 @import '~@/lib/styles/colors';
 @import '~@/lib/styles/sizes';
 
-.code-block {
+.gio-code-block {
   font-size: 3.5rem;
   overflow: hidden;
   border-radius: $border-radius-medium;
@@ -89,7 +95,7 @@ export default class CodeBlocks extends CodeBlockProps {
       }
     }
 
-    .base-text {
+    &__language {
       font-size: 3.5rem;
     }
   }

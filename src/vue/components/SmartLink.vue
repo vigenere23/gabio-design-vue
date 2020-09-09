@@ -16,15 +16,17 @@
 import Vue from 'vue'
 import { Component } from 'vue-property-decorator'
 
-const SmartLinkProps = Vue.extend({
+const Props = Vue.extend({
   props: {
     disable: { type: Boolean, default: false },
     href: { type: String }
   }
 })
 
-@Component
-export default class SmartLink extends SmartLinkProps {
+@Component({
+  name: 'GioSmartLink'
+})
+export default class GioSmartLink extends Props {
   get component(): string {
     return this.href ? (this.isRelativeLink ? 'router-link' : 'a') : 'div'
   }

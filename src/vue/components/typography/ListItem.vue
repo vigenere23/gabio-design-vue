@@ -1,5 +1,5 @@
 <template>
-  <li class="list-item">
+  <li class="gio-list-item">
     <slot></slot>
   </li>
 </template>
@@ -8,12 +8,14 @@
 import Vue from 'vue'
 import { Component } from 'vue-property-decorator'
 
-@Component
-export default class ListItem extends Vue {}
+@Component({
+  name: 'GioListItem'
+})
+export default class GioListItem extends Vue {}
 </script>
 
 <style lang="scss" scoped>
-.list-item {
+.gio-list-item {
   padding-left: 1.5em;
   line-height: inherit;
   margin-bottom: 0.3em;

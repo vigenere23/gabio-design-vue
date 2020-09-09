@@ -1,12 +1,12 @@
 <template>
-  <fa-icon :icon="computedIcon" class="icon" />
+  <fa-icon :icon="computedIcon" class="gio-icon" />
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
 import { Component } from 'vue-property-decorator'
 
-const IconProps = Vue.extend({
+const Props = Vue.extend({
   props: {
     icon: {
       type: String,
@@ -19,8 +19,10 @@ const IconProps = Vue.extend({
   }
 })
 
-@Component
-export default class Icon extends IconProps {
+@Component({
+  name: 'GioIcon'
+})
+export default class GioIcon extends Props {
   get computedIcon(): string[] | string {
     return this.brand ? ['fab', this.icon] : this.icon
   }
@@ -28,7 +30,7 @@ export default class Icon extends IconProps {
 </script>
 
 <style lang="scss" scoped>
-.icon {
+.gio-icon {
   font-size: 0.9em;
 }
 </style>

@@ -1,21 +1,23 @@
 <template>
-  <span class="tag" :class="{ dark }">
+  <span class="gio-tag" :class="{ dark }">
     <slot></slot>
   </span>
 </template>
 
-<script>
+<script lang="ts">
 import { Darkable } from '@/lib/mixins/darkable'
+import { Component } from 'vue-property-decorator'
 
-export default {
-  mixins: [Darkable]
-}
+@Component({
+  name: 'GioTag'
+})
+export default class GioTag extends Darkable {}
 </script>
 
 <style lang="scss">
 @import '~@/lib/styles/colors';
 
-.tag {
+.gio-tag {
   font-size: 0.75em;
   font-weight: 700;
   padding: 0.75rem 1.75rem;

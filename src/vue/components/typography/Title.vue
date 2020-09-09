@@ -1,6 +1,6 @@
 <template>
   <div
-    class="title"
+    class="gio-title"
     :class="{ dark, centered, ...noMarginClass }"
     :style="{ fontSize }"
   >
@@ -16,7 +16,7 @@ import { Centerable } from '@/lib/mixins/centerable'
 import { NoMarginable } from '@/lib/mixins/no-marginable'
 import { mixins } from 'vue-class-component'
 
-const TitleProps = Vue.extend({
+const Props = Vue.extend({
   props: {
     fontSize: {
       type: String,
@@ -25,9 +25,11 @@ const TitleProps = Vue.extend({
   }
 })
 
-@Component
-export default class Title extends mixins(
-  TitleProps,
+@Component({
+  name: 'GioTitle'
+})
+export default class GioTitle extends mixins(
+  Props,
   Darkable,
   Centerable,
   NoMarginable
@@ -38,7 +40,7 @@ export default class Title extends mixins(
 @import '~@/lib/styles/fonts';
 @import '~@/lib/styles/colors';
 
-.title {
+.gio-title {
   font-family: $special-font;
   font-weight: 700;
   color: $primary-text-dark;

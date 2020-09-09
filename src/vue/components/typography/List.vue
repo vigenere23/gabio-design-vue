@@ -1,5 +1,5 @@
 <template>
-  <ul class="list" :class="{ indent }">
+  <ul class="gio-list" :class="{ indent }">
     <slot></slot>
   </ul>
 </template>
@@ -9,6 +9,7 @@ import Vue from 'vue'
 import { Component } from 'vue-property-decorator'
 
 @Component({
+  name: 'GioList',
   props: {
     indent: {
       type: Boolean,
@@ -16,11 +17,11 @@ import { Component } from 'vue-property-decorator'
     }
   }
 })
-export default class List extends Vue {}
+export default class GioList extends Vue {}
 </script>
 
 <style lang="scss" scoped>
-.list {
+.gio-list {
   line-height: 1.5em;
   list-style: none;
   padding: 0;

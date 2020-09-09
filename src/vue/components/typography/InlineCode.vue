@@ -1,5 +1,5 @@
 <template>
-  <span class="inline-code" :class="{ dark }">
+  <span class="gio-inline-code" :class="{ dark }">
     <slot />
   </span>
 </template>
@@ -8,8 +8,10 @@
 import { Component } from 'vue-property-decorator'
 import { Darkable } from '@/lib/mixins/darkable'
 
-@Component
-export default class InlineCode extends Darkable {}
+@Component({
+  name: 'GioInlineCode'
+})
+export default class GioInlineCode extends Darkable {}
 </script>
 
 <style lang="scss">
@@ -17,7 +19,7 @@ export default class InlineCode extends Darkable {}
 @import '~@/lib/styles/fonts';
 @import '~@/lib/styles/sizes';
 
-.inline-code {
+.gio-inline-code {
   padding: 0.5rem 1rem;
   color: $secondary-text-dark;
   background-color: $accent-light;

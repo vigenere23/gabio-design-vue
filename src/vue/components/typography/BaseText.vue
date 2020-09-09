@@ -1,5 +1,5 @@
 <template>
-  <div class="base-text" :class="{ dark, ...typeClass }">
+  <div class="gio-base-text" :class="{ dark, ...typeClass }">
     <slot />
   </div>
 </template>
@@ -12,7 +12,7 @@ import { mixins } from 'vue-class-component'
 
 type TextType = 'primary' | 'secondary' | 'tertiary'
 
-const BaseTextProps = Vue.extend({
+const Props = Vue.extend({
   props: {
     type: {
       type: String,
@@ -24,8 +24,10 @@ const BaseTextProps = Vue.extend({
   }
 })
 
-@Component
-export default class BaseText extends mixins(BaseTextProps, Darkable) {
+@Component({
+  name: 'GioBaseText'
+})
+export default class GioBaseText extends mixins(Props, Darkable) {
   get typeClass(): { [key: string]: boolean } {
     return {
       [this.type]: true
@@ -38,7 +40,7 @@ export default class BaseText extends mixins(BaseTextProps, Darkable) {
 @import '~@/lib/styles/colors';
 @import '~@/lib/styles/fonts';
 
-.base-text {
+.gio-base-text {
   font-family: $classic-font;
   font-size: 4rem;
   font-weight: 500;

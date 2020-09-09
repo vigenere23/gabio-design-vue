@@ -1,6 +1,6 @@
 <template>
   <GioSmartLink
-    class="button"
+    class="gio-button"
     :class="{
       dark,
       'no-margin-left': noMarginLeft,
@@ -10,7 +10,7 @@
     :href="href"
     @click="$emit('click')"
   >
-    <GioBaseText :dark="dark" type="primary" class="button-content">
+    <GioBaseText :dark="dark" type="primary" class="gio-button__content">
       <slot></slot>
     </GioBaseText>
   </GioSmartLink>
@@ -24,7 +24,7 @@ import { Component, Prop } from 'vue-property-decorator'
 
 type Size = 'small' | 'medium'
 
-const ButtonProps = Vue.extend({
+const Props = Vue.extend({
   props: {
     href: { type: String, required: false },
     noMarginLeft: { type: Boolean, default: false },
@@ -32,8 +32,10 @@ const ButtonProps = Vue.extend({
   }
 })
 
-@Component
-export default class Button extends mixins(ButtonProps, Darkable) {
+@Component({
+  name: 'GioButton'
+})
+export default class GioButton extends mixins(Props, Darkable) {
   @Prop({ type: String, default: 'medium' }) size!: Size
 
   get sizeClass(): { [key: string]: boolean } {
@@ -49,7 +51,7 @@ export default class Button extends mixins(ButtonProps, Darkable) {
 @import '~@/lib/styles/transitions';
 @import '~@/lib/styles/sizes';
 
-.button {
+.gio-button {
   display: flex;
   align-items: center;
   width: fit-content;
@@ -115,7 +117,7 @@ export default class Button extends mixins(ButtonProps, Darkable) {
     flex: 0 0 auto;
   }
 
-  .button-content {
+  &__content {
     text-transform: uppercase;
 
     > :not(:first-child) {

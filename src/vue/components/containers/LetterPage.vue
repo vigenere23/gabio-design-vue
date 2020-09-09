@@ -1,5 +1,5 @@
 <template>
-  <div class="letter-page">
+  <div class="gio-letter-page">
     <slot />
   </div>
 </template>
@@ -8,12 +8,14 @@
 import Vue from 'vue'
 import { Component } from 'vue-property-decorator'
 
-@Component
-export default class LetterPage extends Vue {}
+@Component({
+  name: 'GioLetterPage'
+})
+export default class GioLetterPage extends Vue {}
 </script>
 
 <style lang="scss">
-.letter-page {
+.gio-letter-page {
   width: 8.5in;
   height: 11in;
 }

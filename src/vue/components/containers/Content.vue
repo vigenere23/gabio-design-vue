@@ -1,6 +1,6 @@
 <template>
   <div
-    class="content"
+    class="gio-content"
     :class="{ 'no-padding': noPadding }"
     :style="{ maxWidth: width }"
   >
@@ -12,22 +12,24 @@
 import Vue from 'vue'
 import { Component } from 'vue-property-decorator'
 
-const ContentProps = Vue.extend({
+const Props = Vue.extend({
   props: {
     width: { type: String, required: false },
     noPadding: { type: Boolean, default: false }
   }
 })
 
-@Component
-export default class Content extends ContentProps {}
+@Component({
+  name: 'GioContent'
+})
+export default class GioContent extends Props {}
 </script>
 
 <style lang="scss">
 @import '~@/lib/styles/colors';
 @import '~@/lib/styles/sizes';
 
-.content {
+.gio-content {
   width: 100%;
   max-width: $page-width;
   margin: auto;

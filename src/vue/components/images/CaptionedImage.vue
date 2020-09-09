@@ -1,13 +1,13 @@
 <template>
-  <div class="captioned-image" :class="{ dark }" :style="{ width }">
+  <div class="gio-captioned-image" :class="{ dark }" :style="{ width }">
     <GioBaseImage
-      class="captioned-image__image"
+      class="gio-captioned-image__image"
       :src="src"
       :caption="caption"
     />
     <template v-if="caption">
       <GioCaption
-        class="captioned-image__caption"
+        class="gio-captioned-image__caption"
         no-margin
         no-border
         :dark="dark"
@@ -23,7 +23,7 @@ import Vue from 'vue'
 import { Component } from 'vue-property-decorator'
 import { mixins } from 'vue-class-component'
 
-const CaptionedImageProps = Vue.extend({
+const Props = Vue.extend({
   props: {
     src: {
       type: String,
@@ -40,18 +40,17 @@ const CaptionedImageProps = Vue.extend({
   }
 })
 
-@Component
-export default class CaptionedImage extends mixins(
-  CaptionedImageProps,
-  Darkable
-) {}
+@Component({
+  name: 'GioCaptionedImage'
+})
+export default class GioCaptionedImage extends mixins(Props, Darkable) {}
 </script>
 
 <style lang="scss">
 @import '~@/lib/styles/colors';
 @import '~@/lib/styles/sizes';
 
-.captioned-image {
+.gio-captioned-image {
   width: 100%;
   margin: 16px auto;
   border-radius: $border-radius-medium;
@@ -65,7 +64,7 @@ export default class CaptionedImage extends mixins(
   }
 
   &.dark {
-    .captioned-image__image {
+    .gio-captioned-image__image {
       border-color: dark(2);
     }
   }

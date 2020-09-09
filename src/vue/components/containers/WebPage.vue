@@ -1,5 +1,5 @@
 <template>
-  <div class="web-page" :class="{ 'full-height': fullHeight }">
+  <div class="gio-web-page" :class="{ 'full-height': fullHeight }">
     <slot />
   </div>
 </template>
@@ -8,20 +8,22 @@
 import Vue from 'vue'
 import { Component } from 'vue-property-decorator'
 
-const WebPageProps = Vue.extend({
+const Props = Vue.extend({
   props: {
     fullHeight: { type: Boolean, default: false }
   }
 })
 
-@Component
-export default class WebPage extends WebPageProps {}
+@Component({
+  name: 'GioWebPage'
+})
+export default class GioWebPage extends Props {}
 </script>
 
 <style lang="scss">
 @import '~@/lib/styles/sizes';
 
-.web-page {
+.gio-web-page {
   width: 100%;
   min-height: calc(100vh - #{$header-height});
 

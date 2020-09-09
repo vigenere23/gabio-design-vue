@@ -1,6 +1,6 @@
 <template>
   <div
-    class="background-image"
+    class="gio-background-image"
     :style="{
       backgroundImage: `url(${src})`,
       backgroundSize
@@ -16,7 +16,7 @@ import { mixins } from 'vue-class-component'
 
 type BackgroundSize = 'cover' | 'contain'
 
-const BackgroundImageProps = Vue.extend({
+const Props = Vue.extend({
   props: {
     src: String,
     backgroundSize: {
@@ -28,17 +28,16 @@ const BackgroundImageProps = Vue.extend({
   }
 })
 
-@Component
-export default class Backgroundimage extends mixins(
-  BackgroundImageProps,
-  Darkable
-) {}
+@Component({
+  name: 'GioBackgroundimage'
+})
+export default class GioBackgroundimage extends mixins(Props, Darkable) {}
 </script>
 
 <style lang="scss">
 @import '~@/lib/styles/colors';
 
-.background-image {
+.gio-background-image {
   background-position: center;
   background-repeat: no-repeat;
   overflow: hidden;

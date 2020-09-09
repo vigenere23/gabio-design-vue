@@ -1,12 +1,12 @@
 <template>
-  <img :src="src" :alt="caption" :title="caption" />
+  <img class="gio-base-image" :src="src" :alt="caption" :title="caption" />
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
 import { Component } from 'vue-property-decorator'
 
-const BaseImageProps = Vue.extend({
+const Props = Vue.extend({
   props: {
     src: {
       type: String,
@@ -19,12 +19,14 @@ const BaseImageProps = Vue.extend({
   }
 })
 
-@Component
-export default class BaseImage extends BaseImageProps {}
+@Component({
+  name: 'GioBaseImage'
+})
+export default class GioBaseImage extends Props {}
 </script>
 
 <style lang="scss">
-img {
+.gio-base-image {
   display: block;
 }
 </style>

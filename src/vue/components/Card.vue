@@ -1,32 +1,32 @@
 <template>
   <GioSmartLink
-    class="card"
+    class="gio-card"
     :class="{ dark, 'not-ready': notReady }"
     :href="href"
     :disable="notReady"
   >
-    <div class="card__overlay" v-if="notReady">
+    <div class="gio-card__overlay" v-if="notReady">
       <GioHeading :level="3" :dark="dark">Coming soon!</GioHeading>
     </div>
     <GioBackgroundImage
-      class="card__image"
+      class="gio-card__image"
       :src="image"
       :backgroundSize="imageSize"
     />
-    <div class="card__content">
-      <GioHeading class="card__title" :level="3" :dark="dark">{{
+    <div class="gio-card__content">
+      <GioHeading class="gio-card__title" :level="3" :dark="dark">{{
         title
       }}</GioHeading>
-      <GioBaseText type="primary" :dark="!dark" class="card__tags">
+      <GioBaseText type="primary" :dark="!dark" class="gio-card__tags">
         <GioTag v-for="tag in tags" :key="tag" :dark="dark">{{ tag }}</GioTag>
       </GioBaseText>
-      <GioBaseText class="card__desc" :dark="dark">{{ desc }}</GioBaseText>
-      <div class="card__actions">
+      <GioBaseText class="gio-card__desc" :dark="dark">{{ desc }}</GioBaseText>
+      <div class="gio-card__actions">
         <GioButton size="small" :dark="!dark" no-margin-right>
           <span>details</span>
           <GioIcon
             icon="external-link-alt"
-            class="card__button-details__icon"
+            class="gio-card__button-details__icon"
           ></GioIcon>
         </GioButton>
       </div>
@@ -40,7 +40,7 @@ import Vue from 'vue'
 import { Component } from 'vue-property-decorator'
 import { mixins } from 'vue-class-component'
 
-const CardProps = Vue.extend({
+const Props = Vue.extend({
   props: {
     href: String,
     image: String,
@@ -55,8 +55,10 @@ const CardProps = Vue.extend({
   }
 })
 
-@Component
-export default class Card extends mixins(CardProps, Darkable) {}
+@Component({
+  name: 'GioCard'
+})
+export default class GioCard extends mixins(Props, Darkable) {}
 </script>
 
 <style lang="scss">
@@ -64,7 +66,7 @@ export default class Card extends mixins(CardProps, Darkable) {}
 @import '~@/lib/styles/sizes';
 @import '~@/lib/styles/transitions';
 
-.card {
+.gio-card {
   display: block;
   width: 70rem;
   margin: 4rem;
@@ -87,7 +89,7 @@ export default class Card extends mixins(CardProps, Darkable) {}
     background-color: $accent-dark;
     border-color: $accent-dark;
 
-    .card__overlay {
+    .gio-card__overlay {
       background-color: rgba($focus-dark, 0.9);
     }
 

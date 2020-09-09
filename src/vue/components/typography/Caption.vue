@@ -1,6 +1,6 @@
 <template>
   <div
-    class="caption"
+    class="gio-caption"
     :class="{ dark, ...noMarginClass, 'no-border': noBorder }"
   >
     <GioBaseText type="tertiary" :dark="dark">
@@ -16,25 +16,23 @@ import { Darkable } from '@/lib/mixins/darkable'
 import { NoMarginable } from '@/lib/mixins/no-marginable'
 import { mixins } from 'vue-class-component'
 
-const CaptionProps = Vue.extend({
+const Props = Vue.extend({
   props: {
     noBorder: { type: Boolean, default: false }
   }
 })
 
-@Component
-export default class Caption extends mixins(
-  CaptionProps,
-  Darkable,
-  NoMarginable
-) {}
+@Component({
+  name: 'GioCaption'
+})
+export default class GioCaption extends mixins(Props, Darkable, NoMarginable) {}
 </script>
 
 <style lang="scss">
 @import '~@/lib/styles/colors';
 @import '~@/lib/styles/sizes';
 
-.caption {
+.gio-caption {
   display: block;
   padding: 1rem 3rem;
   background-color: $accent-light;

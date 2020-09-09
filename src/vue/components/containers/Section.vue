@@ -1,6 +1,6 @@
 <template>
   <section
-    class="section"
+    class="gio-section"
     :class="{ dark, 'no-padding': noPadding }"
     :id="computedId"
   >
@@ -14,15 +14,17 @@ import { Component } from 'vue-property-decorator'
 import { Darkable } from '@/lib/mixins/darkable'
 import { mixins } from 'vue-class-component'
 
-const SectionProps = Vue.extend({
+const Props = Vue.extend({
   props: {
     id: { type: String, required: false },
     noPadding: { type: Boolean, default: false }
   }
 })
 
-@Component
-export default class Section extends mixins(SectionProps, Darkable) {
+@Component({
+  name: 'GioSection'
+})
+export default class GioSection extends mixins(Props, Darkable) {
   get computedId(): string | null {
     return this.id ? `#${this.id}` : null
   }
@@ -32,7 +34,7 @@ export default class Section extends mixins(SectionProps, Darkable) {
 <style lang="scss">
 @import '~@/lib/styles/colors';
 
-.section {
+.gio-section {
   width: 100%;
   background-color: $background-light;
 

@@ -1,5 +1,5 @@
 <template>
-  <div class="heading" :class="{ dark, ...noMarginClass, ...levelClass }">
+  <div class="gio-heading" :class="{ dark, ...noMarginClass, ...levelClass }">
     <slot />
   </div>
 </template>
@@ -13,8 +13,7 @@ import { mixins } from 'vue-class-component'
 
 type HeadingLevel = 1 | 2 | 3 | 4
 
-const HeadingProps = Vue.extend({
-  mixins: [Darkable, NoMarginable],
+const Props = Vue.extend({
   props: {
     level: {
       type: Number,
@@ -24,12 +23,10 @@ const HeadingProps = Vue.extend({
   }
 })
 
-@Component
-export default class Heading extends mixins(
-  HeadingProps,
-  Darkable,
-  NoMarginable
-) {
+@Component({
+  name: 'GioHeading'
+})
+export default class GioHeading extends mixins(Props, Darkable, NoMarginable) {
   get levelClass(): { [key: string]: boolean } {
     return {
       [`level-${this.level}`]: true
@@ -42,7 +39,7 @@ export default class Heading extends mixins(
 @import '~@/lib/styles/fonts';
 @import '~@/lib/styles/colors';
 
-.heading {
+.gio-heading {
   font-family: $special-font;
   font-weight: 700;
   color: $primary-text-dark;
