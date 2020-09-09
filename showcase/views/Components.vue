@@ -26,7 +26,9 @@
       </GioContent>
     </GioSection>
     <GioSection>
-      <Markdown></Markdown>
+      <GioContent>
+        <Markdown></Markdown>
+      </GioContent>
     </GioSection>
   </div>
 </template>

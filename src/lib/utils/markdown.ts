@@ -44,8 +44,8 @@ export class GioMarkdownRenderer extends marked.Renderer {
     return `<GioCodeBlock language="${language}" code="${encodeURI(code)}" />`
   }
 
-  list(body: string /*, ordered: boolean, start: number*/): string {
-    return `<GioBodyText><GioList indent>${body}</GioList></GioBodyText>`
+  list(body: string /*ordered: boolean, start: number*/): string {
+    return `<GioBodyText no-margin><GioList indent>${body}</GioList></GioBodyText>`
   }
 
   listitem(text: string): string {

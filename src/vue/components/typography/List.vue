@@ -28,6 +28,10 @@ export default class GioList extends Vue {}
 
   &.indent {
     margin-left: 6rem;
+
+    .indent {
+      margin-left: 0;
+    }
   }
 }
 </style>

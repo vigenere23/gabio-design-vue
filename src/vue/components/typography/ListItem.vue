@@ -18,7 +18,6 @@ export default class GioListItem extends Vue {}
 .gio-list-item {
   padding-left: 1.5em;
   line-height: inherit;
-  margin-bottom: 0.3em;
 
   &::before {
     content: '\279C'; // HEAVY ROUND-TIPPED RIGHT ARROW
