@@ -1,7 +1,7 @@
 <template>
   <div class="components">
     <GioSection :dark="dark">
-      <GioContent>
+      <GioContent width="900px">
         <GioTitle :dark="dark">gio-library component showcase</GioTitle>
         <div class="components__dark-selector">
           <div>
@@ -26,7 +26,7 @@
       </GioContent>
     </GioSection>
     <GioSection>
-      <GioContent>
+      <GioContent width="900px">
         <Markdown></Markdown>
       </GioContent>
     </GioSection>
