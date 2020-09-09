@@ -16,6 +16,7 @@
     "gio.d.ts"
   ],
   "scripts": {
+    "setup": "yarn && cd showcase && yarn && cd -",
     "build": "yarn build:vue && yarn build:lib",
     "build:vue": "vue-cli-service build --target lib --name gio --dest dist --report src/vue/entry.ts",
     "build:lib": "node ./scripts/build-lib.js",
@@ -25,6 +26,7 @@
   },
   "dependencies": {
     "@openfonts/sen_latin": "^1.0.3",
+    "prismjs": "^1.21.0",
     "typeface-fira-code": "^1.1.4",
     "typeface-roboto": "^0.0.75",
     "vue": "^2.6.11",
@@ -33,10 +35,6 @@
     "vue-property-decorator": "^9.0.0"
   },
   "devDependencies": {
-    "@fortawesome/fontawesome-svg-core": "^1.2.30",
-    "@fortawesome/free-brands-svg-icons": "^5.14.0",
-    "@fortawesome/free-solid-svg-icons": "^5.14.0",
-    "@fortawesome/vue-fontawesome": "^2.0.0",
     "@types/node": "^14.6.2",
     "@typescript-eslint/eslint-plugin": "^4.0.1",
     "@typescript-eslint/parser": "^4.0.1",
@@ -51,11 +49,9 @@
     "eslint-plugin-prettier": "^3.1.4",
     "eslint-plugin-vue": "^6.2.2",
     "prettier": "^2.1.1",
-    "prismjs": "^1.21.0",
     "sass": "^1.26.10",
     "sass-loader": "^10.0.1",
     "typescript": "^3.8.3",
-    "vue-router": "^3.4.3",
     "vue-template-compiler": "^2.6.11"
   },
   "peerDependencies": {
