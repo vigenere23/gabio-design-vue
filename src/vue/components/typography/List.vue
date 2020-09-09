@@ -21,15 +21,22 @@ export default class GioList extends Vue {}
 </script>
 
 <style lang="scss" scoped>
+@import '~@/lib/styles/sizes';
+
 .gio-list {
   line-height: 1.5em;
   list-style: none;
   padding: 0;
+  @include text-margin;
 
   &.indent {
     margin-left: 6rem;
+  }
 
-    .indent {
+  .gio-list {
+    margin: 0;
+
+    &.indent {
       margin-left: 0;
     }
   }
