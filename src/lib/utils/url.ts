@@ -1,6 +1,6 @@
 export type RelativeUrlResolver = (relativeUrl: string) => string
 
-export function resolveImageURL(
+export function resolveURL(
   url: string,
   relativeUrlResolver: RelativeUrlResolver
 ): string {

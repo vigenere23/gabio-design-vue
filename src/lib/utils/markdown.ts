@@ -1,6 +1,6 @@
 import marked from 'marked'
 import DOMPurify from 'dompurify'
-import { resolveImageURL, RelativeUrlResolver } from '@/lib/utils/image'
+import { resolveURL, RelativeUrlResolver } from './url'
 
 export class GioMarkdownRenderer extends marked.Renderer {
   constructor(private relativeUrlResolver: RelativeUrlResolver) {
@@ -25,7 +25,7 @@ export class GioMarkdownRenderer extends marked.Renderer {
   image(href: string, title: string, text: string): string {
     return `
       <GioCaptionedImage
-        src="${resolveImageURL(href, this.relativeUrlResolver)}"
+        src="${resolveURL(href, this.relativeUrlResolver)}"
         caption="${text || title || ''}"
       />
     `
