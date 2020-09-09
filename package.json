@@ -26,6 +26,8 @@
   },
   "dependencies": {
     "@openfonts/sen_latin": "^1.0.3",
+    "dompurify": "^2.0.15",
+    "marked": "^1.1.1",
     "prismjs": "^1.21.0",
     "typeface-fira-code": "^1.1.4",
     "typeface-roboto": "^0.0.75",
@@ -35,6 +37,8 @@
     "vue-property-decorator": "^9.0.0"
   },
   "devDependencies": {
+    "@types/dompurify": "^2.0.4",
+    "@types/marked": "^1.1.0",
     "@types/node": "^14.6.2",
     "@typescript-eslint/eslint-plugin": "^4.0.1",
     "@typescript-eslint/parser": "^4.0.1",
@@ -49,6 +53,7 @@
     "eslint-plugin-prettier": "^3.1.4",
     "eslint-plugin-vue": "^6.2.2",
     "prettier": "^2.1.1",
+    "raw-loader": "^4.0.1",
     "sass": "^1.26.10",
     "sass-loader": "^10.0.1",
     "typescript": "^3.8.3",

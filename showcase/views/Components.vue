@@ -25,11 +25,15 @@
         <Containers :dark="dark"></Containers>
       </GioContent>
     </GioSection>
+    <GioSection>
+      <Markdown></Markdown>
+    </GioSection>
   </div>
 </template>
 
 <script>
 export default {
+  // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
   data() {
     return {
       dark: false

@@ -7,8 +7,18 @@ module.exports = {
   configureWebpack: {
     resolve: {
       alias: {
-        '@': path.join(__dirname, './src')
+        '@': path.join(__dirname, './src'),
+        '@showcase': path.join(__dirname, './showcase'),
+        vue$: 'vue/dist/vue.esm.js' // for building markdown files
       }
+    },
+    module: {
+      rules: [
+        {
+          test: /\.md$/,
+          loader: 'raw-loader'
+        }
+      ]
     }
   },
   chainWebpack: (config) => {
