@@ -10,7 +10,7 @@ export class GioMarkdownRenderer extends marked.Renderer {
   heading(text: string, level: number): string {
     const escapedText = text.toLowerCase().replace(/[^\w]+/g, '-')
     return level === 1
-      ? `<GioTitle no-margin>${text}</GioTitle>`
+      ? `<GioTitle no-margin fontSize="12rem">${text}</GioTitle>`
       : level === 6
       ? `<GioSubtitle>${text}</GioSubtitle>`
       : `<GioHeading :level="${
