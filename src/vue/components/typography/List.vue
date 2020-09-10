@@ -24,7 +24,7 @@ export default class GioList extends NoMarginable {}
 @import '~@/lib/styles/sizes';
 
 .gio-list {
-  line-height: 1.5em;
+  line-height: 1.75em;
   list-style: none;
   padding: 0;
   margin: 0;
