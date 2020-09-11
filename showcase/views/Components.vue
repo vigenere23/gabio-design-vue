@@ -25,7 +25,7 @@
         <Containers :dark="dark"></Containers>
       </GioContent>
     </GioSection>
-    <GioSection>
+    <GioSection v-if="showMarkdownSection">
       <GioContent width="900px">
         <Markdown></Markdown>
       </GioContent>
@@ -39,6 +39,11 @@ export default {
   data() {
     return {
       dark: false
+    }
+  },
+  computed: {
+    showMarkdownSection() {
+      return process.env.NODE_ENV !== 'production'
     }
   }
 }
