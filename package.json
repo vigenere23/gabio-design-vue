@@ -1,6 +1,6 @@
 {
   "name": "@vigenere23/gio",
-  "version": "1.4.8",
+  "version": "1.4.9",
   "publishConfig": {
     "access": "public"
   },
@@ -36,7 +36,6 @@
     "vue-property-decorator": "^9.0.0"
   },
   "devDependencies": {
-    "@types/dompurify": "^2.0.4",
     "@types/marked": "^1.1.0",
     "@types/node": "^14.6.2",
     "@typescript-eslint/eslint-plugin": "^4.0.1",
