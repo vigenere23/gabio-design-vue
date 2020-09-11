@@ -26,7 +26,6 @@
   },
   "dependencies": {
     "@openfonts/sen_latin": "^1.0.3",
-    "dompurify": "^2.0.15",
     "marked": "^1.1.1",
     "prismjs": "^1.21.0",
     "typeface-fira-code": "^1.1.4",

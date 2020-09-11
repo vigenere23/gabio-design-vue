@@ -6,6 +6,8 @@
     :target="targetProperty"
     :event="event"
     :append="shouldAppend"
+    class="gio-smart-link"
+    :class="{ accent, dark }"
     @click="$emit(event)"
   >
     <slot />
@@ -15,18 +17,21 @@
 <script lang="ts">
 import Vue from 'vue'
 import { Component } from 'vue-property-decorator'
+import { Darkable } from '@/lib/mixins/darkable'
+import { mixins } from 'vue-class-component'
 
 const Props = Vue.extend({
   props: {
     disable: { type: Boolean, default: false },
-    href: { type: String }
+    href: { type: String },
+    accent: { type: Boolean, default: false }
   }
 })
 
 @Component({
   name: 'GioSmartLink'
 })
-export default class GioSmartLink extends Props {
+export default class GioSmartLink extends mixins(Props, Darkable) {
   get component(): string {
     return this.href ? (this.isRelativeLink ? 'router-link' : 'a') : 'div'
   }
@@ -58,3 +63,18 @@ export default class GioSmartLink extends Props {
   }
 }
 </script>
+
+<style lang="scss">
+@import '~@/lib/styles/colors';
+
+.gio-smart-link {
+  &.accent {
+    color: $primary-text-dark;
+    text-decoration: underline;
+
+    &.dark {
+      color: $primary-text-light;
+    }
+  }
+}
+</style>

@@ -1,5 +1,4 @@
 import marked from 'marked'
-import DOMPurify from 'dompurify'
 import { resolveURL, RelativeUrlResolver } from './url'
 
 export class GioMarkdownRenderer extends marked.Renderer {
@@ -32,7 +31,6 @@ export class GioMarkdownRenderer extends marked.Renderer {
   }
 
   blockquote(quote: string): string {
-    quote = DOMPurify.sanitize(quote)
     return `<GioCaption>${quote}</GioCaption>`
   }
 
@@ -50,6 +48,10 @@ export class GioMarkdownRenderer extends marked.Renderer {
 
   listitem(text: string): string {
     return `<GioListItem>${text}</GioListItem>`
+  }
+
+  link(href: string, _title: string, text: string) {
+    return `<GioSmartLink accent href="${href}">${text}</GioSmartLink>`
   }
 }
 

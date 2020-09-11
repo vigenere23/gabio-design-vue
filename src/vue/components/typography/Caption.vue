@@ -50,5 +50,10 @@ export default class GioCaption extends mixins(Props, Darkable, NoMarginable) {}
     background-color: $accent-dark;
     border-left-color: $tertiary-text-light;
   }
+
+  .gio-body-text {
+    margin: 0;
+    font-size: inherit;
+  }
 }
 </style>
