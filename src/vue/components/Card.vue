@@ -22,7 +22,7 @@
       </GioBaseText>
       <GioBaseText class="gio-card__desc" :dark="dark">{{ desc }}</GioBaseText>
       <div class="gio-card__actions">
-        <GioButton size="small" :dark="!dark" no-margin-right>
+        <GioButton size="small" :dark="!dark" no-margin-right :href="href">
           <span>details</span>
           <GioIcon
             icon="external-link-alt"
