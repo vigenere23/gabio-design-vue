@@ -3,7 +3,7 @@
     class="gio-caption"
     :class="{ dark, ...noMarginClass, 'no-border': noBorder }"
   >
-    <GioBaseText type="tertiary" :dark="dark">
+    <GioBaseText type="secondary" :dark="dark">
       <slot />
     </GioBaseText>
   </div>
@@ -34,7 +34,7 @@ export default class GioCaption extends mixins(Props, Darkable, NoMarginable) {}
 
 .gio-caption {
   display: block;
-  padding: 1rem 3rem;
+  padding: 2.5rem 3rem;
   background-color: $accent-light;
   border-radius: $border-radius-small;
 
@@ -51,9 +51,14 @@ export default class GioCaption extends mixins(Props, Darkable, NoMarginable) {}
     border-left-color: $tertiary-text-light;
   }
 
+  .gio-body-text,
+  .gio-base-text {
+    line-height: normal;
+  }
+
   .gio-body-text {
-    margin: 0;
     font-size: inherit;
+    margin: 0;
   }
 }
 </style>
