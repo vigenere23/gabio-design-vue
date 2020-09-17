@@ -61,9 +61,10 @@
     <GioBodyText :dark="dark"
       ><GioInlineCode :dark="dark">GioInlineCode</GioInlineCode></GioBodyText
     >
-    <GioBaseText type="primary" :dark="!dark"
-      ><GioTag :dark="dark">GioTag</GioTag></GioBaseText
-    >
+    <GioBaseText type="primary" :dark="!dark">
+      <GioTag :dark="dark">GioTag (primary)</GioTag>
+      <GioTag type="secondary" :dark="dark">GioTag (secondary)</GioTag>
+    </GioBaseText>
 
     <GioHeading :dark="dark" :level="1">GioIcon</GioHeading>
     <GioBodyText :dark="dark"
