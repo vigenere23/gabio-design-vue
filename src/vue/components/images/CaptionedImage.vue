@@ -3,7 +3,7 @@
     <GioImage
       class="gio-captioned-image__image"
       :src="src"
-      :caption="caption"
+      :description="caption"
     />
     <template v-if="caption">
       <GioCaption

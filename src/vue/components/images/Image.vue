@@ -1,5 +1,11 @@
 <template>
-  <img class="gio-base-image" :src="src" :alt="caption" :title="caption" />
+  <img
+    class="gio-base-image"
+    :style="{ ...objectFitStyle }"
+    :src="src"
+    :alt="description"
+    :title="description"
+  />
 </template>
 
 <script lang="ts">
@@ -12,9 +18,14 @@ const Props = Vue.extend({
       type: String,
       required: true
     },
-    caption: {
+    description: {
       type: String,
       required: false
+    },
+    objectFit: {
+      type: String,
+      required: false,
+      validator: (value) => ['contain', 'cover'].includes(value)
     }
   }
 })
@@ -22,7 +33,15 @@ const Props = Vue.extend({
 @Component({
   name: 'GioImage'
 })
-export default class GioImage extends Props {}
+export default class GioImage extends Props {
+  get objectFitStyle(): { [key: string]: string } {
+    if (!this.objectFit) return {}
+
+    return {
+      objectFit: this.objectFit
+    }
+  }
+}
 </script>
 
 <style lang="scss">
