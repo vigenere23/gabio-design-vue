@@ -6,13 +6,9 @@
         <div class="gio-code-block__top-bar__window-buttons__yellow" />
         <div class="gio-code-block__top-bar__window-buttons__green" />
       </div>
-      <GioBaseText
-        dark
-        type="secondary"
-        class="gio-code-block__top-bar__language"
-      >
+      <GioText dark type="secondary" class="gio-code-block__top-bar__language">
         {{ language }}
-      </GioBaseText>
+      </GioText>
     </div>
 
     <template v-if="language">

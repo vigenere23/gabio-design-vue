@@ -12,18 +12,18 @@
       width="50%"
     ></GioCaptionedImage>
 
-    <GioHeading :dark="dark" :level="1">GioBaseImage</GioHeading>
+    <GioHeading :dark="dark" :level="1">GioImage</GioHeading>
     <GioBodyText :dark="dark"
       >To display a block image with its
       <GioInlineCode :dark="dark">title</GioInlineCode> and
       <GioInlineCode :dark="dark">alt</GioInlineCode> properties
       filled.</GioBodyText
     >
-    <GioBaseImage
+    <GioImage
       class="images__smaller-image"
       src="https://user-images.githubusercontent.com/32545895/72564049-efe3b800-387c-11ea-888b-5c1cd3745b61.png"
       caption="A captioned image"
-    ></GioBaseImage>
+    ></GioImage>
 
     <GioHeading :dark="dark" :level="1">GioBackgroundImage</GioHeading>
     <GioBodyText :dark="dark"

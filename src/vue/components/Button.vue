@@ -10,9 +10,9 @@
     :href="href"
     @click="$emit('click')"
   >
-    <GioBaseText :dark="dark" type="primary" class="gio-button__content">
+    <GioText :dark="dark" type="primary" class="gio-button__content">
       <slot></slot>
-    </GioBaseText>
+    </GioText>
   </GioSmartLink>
 </template>
 

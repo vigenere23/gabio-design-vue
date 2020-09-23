@@ -20,7 +20,7 @@
       >Level 4 (example, precision, etc.)</GioHeading
     >
 
-    <GioHeading :dark="dark" :level="1">GioBaseText</GioHeading>
+    <GioHeading :dark="dark" :level="1">GioText</GioHeading>
     <GioBodyText :dark="dark"
       >This is the text that will be displayed everywhere in the app. You should
       NEVER use directly <GioInlineCode :dark="dark">p</GioInlineCode> or
@@ -29,19 +29,17 @@
       types of text available :</GioBodyText
     >
     <div class="typography__base-texts">
-      <GioBaseText :dark="dark" type="primary">Primary (headings)</GioBaseText>
-      <GioBaseText :dark="dark" type="secondary"
-        >Secondary (default, main)</GioBaseText
-      >
-      <GioBaseText :dark="dark" type="tertiary"
-        >Tertiary (captions, subtitles)</GioBaseText
+      <GioText :dark="dark" type="primary">Primary (headings)</GioText>
+      <GioText :dark="dark" type="secondary">Secondary (default, main)</GioText>
+      <GioText :dark="dark" type="tertiary"
+        >Tertiary (captions, subtitles)</GioText
       >
     </div>
 
     <GioHeading :dark="dark" :level="1">GioBodyText</GioHeading>
     <GioBodyText :dark="dark"
       >This should be uses for text paragraph. It is the same as
-      <GioInlineCode :dark="dark">GioBaseText</GioInlineCode>, but with bigger
+      <GioInlineCode :dark="dark">GioText</GioInlineCode>, but with bigger
       <GioInlineCode :dark="dark">font-size</GioInlineCode>,
       <GioInlineCode :dark="dark">line-height</GioInlineCode> and
       <GioInlineCode :dark="dark">margin</GioInlineCode>.</GioBodyText
@@ -61,10 +59,10 @@
     <GioBodyText :dark="dark"
       ><GioInlineCode :dark="dark">GioInlineCode</GioInlineCode></GioBodyText
     >
-    <GioBaseText type="primary" :dark="!dark">
+    <GioText type="primary" :dark="!dark">
       <GioTag :dark="dark">GioTag (primary)</GioTag>
       <GioTag type="secondary" :dark="dark">GioTag (secondary)</GioTag>
-    </GioBaseText>
+    </GioText>
 
     <GioHeading :dark="dark" :level="1">GioIcon</GioHeading>
     <GioBodyText :dark="dark"

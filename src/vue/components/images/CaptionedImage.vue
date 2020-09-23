@@ -1,6 +1,6 @@
 <template>
   <div class="gio-captioned-image" :class="{ dark }" :style="{ width }">
-    <GioBaseImage
+    <GioImage
       class="gio-captioned-image__image"
       :src="src"
       :caption="caption"

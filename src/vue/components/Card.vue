@@ -17,10 +17,10 @@
       <GioHeading class="gio-card__title" :level="3" :dark="dark">{{
         title
       }}</GioHeading>
-      <GioBaseText type="primary" :dark="!dark" class="gio-card__tags">
+      <GioText type="primary" :dark="!dark" class="gio-card__tags">
         <GioTag v-for="tag in tags" :key="tag" :dark="dark">{{ tag }}</GioTag>
-      </GioBaseText>
-      <GioBaseText class="gio-card__desc" :dark="dark">{{ desc }}</GioBaseText>
+      </GioText>
+      <GioText class="gio-card__desc" :dark="dark">{{ desc }}</GioText>
       <div class="gio-card__actions">
         <GioButton size="small" :dark="!dark" no-margin-right :href="href">
           <span>details</span>

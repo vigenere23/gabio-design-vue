@@ -1,11 +1,11 @@
 <template>
-  <GioBaseText
+  <GioText
     class="gio-body-text"
     :dark="dark"
     :class="{ 'no-margin': noMargin }"
   >
     <slot />
-  </GioBaseText>
+  </GioText>
 </template>
 
 <script lang="ts">

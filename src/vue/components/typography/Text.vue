@@ -25,9 +25,9 @@ const Props = Vue.extend({
 })
 
 @Component({
-  name: 'GioBaseText'
+  name: 'GioText'
 })
-export default class GioBaseText extends mixins(Props, Darkable) {
+export default class GioText extends mixins(Props, Darkable) {
   get typeClass(): { [key: string]: boolean } {
     return {
       [this.type]: true

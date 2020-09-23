@@ -20,9 +20,9 @@ const Props = Vue.extend({
 })
 
 @Component({
-  name: 'GioBaseImage'
+  name: 'GioImage'
 })
-export default class GioBaseImage extends Props {}
+export default class GioImage extends Props {}
 </script>
 
 <style lang="scss">

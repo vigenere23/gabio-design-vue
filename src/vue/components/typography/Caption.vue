@@ -3,9 +3,9 @@
     class="gio-caption"
     :class="{ dark, ...noMarginClass, 'no-border': noBorder }"
   >
-    <GioBaseText type="secondary" :dark="dark">
+    <GioText type="secondary" :dark="dark">
       <slot />
-    </GioBaseText>
+    </GioText>
   </div>
 </template>
 
