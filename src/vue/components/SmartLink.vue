@@ -6,6 +6,7 @@
     :target="targetProperty"
     :event="event"
     :append="shouldAppend"
+    rel="noopener"
     class="gio-smart-link"
     :class="{ accent, dark }"
     @click="$emit(event)"
