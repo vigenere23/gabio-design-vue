@@ -8,11 +8,9 @@
     <div class="gio-card__overlay" v-if="notReady">
       <GioHeading :level="3" :dark="dark">Coming soon!</GioHeading>
     </div>
-    <GioBackgroundImage
-      class="gio-card__image"
-      :src="image"
-      :backgroundSize="imageSize"
-    />
+    <div class="gio-card__image-wrapper">
+      <GioImage class="gio-card__image" :src="image" :objectFit="imageSize" />
+    </div>
     <div class="gio-card__content">
       <GioHeading class="gio-card__title" :level="3" :dark="dark">{{
         title
@@ -118,12 +116,21 @@ export default class GioCard extends mixins(Props, Darkable) {}
     background-color: rgba($focus-light, 0.9);
   }
 
-  &__image {
+  &__image-wrapper {
     width: 100%;
     padding-bottom: 100% / 16 * 10;
     background-color: lighten($background-light, 2%);
     border-radius: $border-radius-small;
     overflow: hidden;
+    position: relative;
+  }
+
+  &__image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
   }
 
   &__content {
