@@ -8,8 +8,8 @@
     <div class="gio-card__overlay" v-if="notReady">
       <GioHeading :level="3" :dark="dark">Coming soon!</GioHeading>
     </div>
-    <div class="gio-card__image-wrapper">
-      <GioImage class="gio-card__image" :src="image" :objectFit="imageSize" />
+    <div class="gio-card__image-wrapper" v-if="$slots.image">
+      <slot name="image"></slot>
     </div>
     <div class="gio-card__content">
       <GioHeading class="gio-card__title" :level="3" :dark="dark">{{
@@ -19,14 +19,8 @@
         <GioTag v-for="tag in tags" :key="tag" :dark="dark">{{ tag }}</GioTag>
       </GioText>
       <GioText class="gio-card__desc" :dark="dark">{{ desc }}</GioText>
-      <div class="gio-card__actions">
-        <GioButton size="small" :dark="!dark" no-margin-right :href="href">
-          <span>details</span>
-          <GioIcon
-            icon="external-link-alt"
-            class="gio-card__button-details__icon"
-          ></GioIcon>
-        </GioButton>
+      <div class="gio-card__actions" v-if="$slots.actions">
+        <slot name="actions"></slot>
       </div>
     </div>
   </GioSmartLink>
@@ -41,11 +35,9 @@ import { mixins } from 'vue-class-component'
 const Props = Vue.extend({
   props: {
     href: String,
-    image: String,
     title: String,
     tags: Array,
     desc: String,
-    imageSize: String,
     notReady: {
       type: Boolean,
       default: false
@@ -123,14 +115,14 @@ export default class GioCard extends mixins(Props, Darkable) {}
     border-radius: $border-radius-small;
     overflow: hidden;
     position: relative;
-  }
 
-  &__image {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    > * {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
   }
 
   &__content {
@@ -139,7 +131,7 @@ export default class GioCard extends mixins(Props, Darkable) {}
   }
 
   &__title {
-    margin-bottom: 1rem;
+    margin-top: 0;
     line-height: 1.2em;
     height: 1.2em;
     overflow: hidden;
@@ -159,18 +151,14 @@ export default class GioCard extends mixins(Props, Darkable) {}
 
   &__desc {
     line-height: 1.2em;
-    height: 4 * 1.2em;
+    max-height: 4 * 1.2em;
     overflow: hidden;
   }
 
   &__actions {
-    margin-top: 4rem;
+    margin-top: 6rem;
     display: flex;
     justify-content: flex-end;
-  }
-
-  &__button-details__icon {
-    padding-bottom: 0.5rem;
   }
 }
 </style>

@@ -50,7 +50,7 @@ export default class GioImage extends Props {
     }
   }
 
-  created(): void {
+  mounted(): void {
     if (this.preventLazyLoading) return
 
     this.startLazyLoading()
@@ -73,10 +73,8 @@ export default class GioImage extends Props {
           entries.forEach(function (entry) {
             if (entry.isIntersecting) {
               let lazyImage = entry.target as HTMLImageElement
-              if (lazyImage.dataset.src) {
-                lazyImage.src = lazyImage.dataset.src as string
-                lazyImageObserver.unobserve(lazyImage)
-              }
+              lazyImage.src = lazyImage.dataset.src as string
+              lazyImageObserver.unobserve(lazyImage)
             }
           })
         })

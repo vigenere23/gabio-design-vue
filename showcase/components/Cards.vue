@@ -8,9 +8,28 @@
         :tags="['fullstack', 'typescript', 'design']"
         desc="Lorem Ipsum adanis consta esperiamus dela is rectura parametra uvtile càsa tu"
         href="https://google.com"
-        image="https://user-images.githubusercontent.com/32545895/72564049-efe3b800-387c-11ea-888b-5c1cd3745b61.png"
-        imageSize="cover"
-      />
+      >
+        <template v-slot:image>
+          <GioImage
+            src="https://user-images.githubusercontent.com/32545895/72564049-efe3b800-387c-11ea-888b-5c1cd3745b61.png"
+            objectFit="cover"
+          />
+        </template>
+        <template v-slot:actions>
+          <GioButton
+            size="small"
+            :dark="!dark"
+            no-margin-right
+            href="https://google.com"
+          >
+            <span>details</span>
+            <GioIcon
+              icon="external-link-alt"
+              class="gio-card__button-details__icon"
+            ></GioIcon>
+          </GioButton>
+        </template>
+      </GioCard>
     </div>
   </div>
 </template>

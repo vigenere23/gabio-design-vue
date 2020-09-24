@@ -30,10 +30,6 @@
       <GioInlineCode :dark="dark">cover</GioInlineCode> image.
     </GioBodyText>
 
-    <GioCaption
-      >This property needs proper wrapping with defined size</GioCaption
-    >
-
     <div class="images__background">
       <div class="images__background__container">
         <GioBodyText :dark="dark">contain</GioBodyText>
