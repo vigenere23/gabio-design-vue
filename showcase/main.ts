@@ -9,7 +9,7 @@ new ComponentsRegisterer().register()
 new FontAwesomeRegisterer().register()
 
 Vue.config.productionTip = false
-Vue.use(gio)
+Vue.use(gio, {})
 
 new Vue({
   router,
