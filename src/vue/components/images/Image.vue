@@ -1,6 +1,6 @@
 <template>
   <picture class="gio-image">
-    <source v-for="src in srcs" :key="src" :srcset="src" />
+    <source v-for="(src, i) in srcs" :key="i" :srcset="src" />
     <img
       class="gio-image__image"
       ref="image"
