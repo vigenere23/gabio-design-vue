@@ -26,5 +26,9 @@ module.exports = {
       args[0].tsconfig = './src/vue/tsconfig.json'
       return args
     })
+    config.plugin('html').tap((args) => {
+      args[0].title = 'gio-library showcase'
+      return args
+    })
   }
 }

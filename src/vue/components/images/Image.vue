@@ -1,12 +1,16 @@
 <template>
   <picture class="gio-image">
-    <source v-for="(src, i) in srcs" :key="i" :srcset="src" />
+    <source
+      v-for="(srcset, i) in srcsets"
+      :key="i"
+      :srcset="srcset"
+      :type="imageType(srcset)"
+    />
     <img
       class="gio-image__image"
       ref="image"
       :style="{ ...objectFitStyle }"
       :src="imageSrc"
-      :data-src="dataImageSrc"
       :alt="description"
       :title="description"
     />
@@ -43,6 +47,7 @@ const Props = Vue.extend({
 export default class GioImage extends Props {
   @Prop({ type: Array, required: true }) srcs!: string[]
 
+  srcsets: string[] = []
   imageSrc = LOADING_IMAGE_SRC
   intersectionObserver: IntersectionObserver | null = null
 
@@ -59,11 +64,13 @@ export default class GioImage extends Props {
       this.startLazyLoading()
     } else {
       this.imageSrc = this.lastSrc
+      this.srcsets = this.srcs
     }
   }
 
-  get dataImageSrc(): string | undefined {
-    return this.lazy ? this.lastSrc : undefined
+  imageType(imageSrc: string): string {
+    const extension = imageSrc.split('.').pop()
+    return `image/${extension}`
   }
 
   private get lastSrc(): string {
@@ -78,9 +85,9 @@ export default class GioImage extends Props {
         this.intersectionObserver = observer
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            let lazyImage = entry.target as HTMLImageElement
-            this.imageSrc = lazyImage.dataset.src as string
-            observer.unobserve(lazyImage)
+            this.srcsets = this.srcs
+            this.imageSrc = this.lastSrc
+            observer.unobserve(entry.target)
           }
         })
       }
@@ -98,6 +105,12 @@ export default class GioImage extends Props {
     display: block;
     width: 100%;
     height: 100%;
+    opacity: 1;
+    transition: opacity 0.3s ease-in-out;
+
+    &[src=''] {
+      opacity: 0;
+    }
   }
 }
 </style>
