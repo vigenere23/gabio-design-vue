@@ -31,6 +31,10 @@ import { Darkable } from '@/lib/mixins/darkable'
 import Vue from 'vue'
 import { Component } from 'vue-property-decorator'
 import { mixins } from 'vue-class-component'
+import GioText from '@/vue/components/typography/Text.vue'
+import GioHeading from '@/vue/components/typography/Heading.vue'
+import GioTag from '@/vue/components/typography/Tag.vue'
+import GioSmartLink from '@/vue/components/SmartLink.vue'
 
 const Props = Vue.extend({
   props: {
@@ -46,7 +50,8 @@ const Props = Vue.extend({
 })
 
 @Component({
-  name: 'GioCard'
+  name: 'GioCard',
+  components: { GioText, GioHeading, GioTag, GioSmartLink }
 })
 export default class GioCard extends mixins(Props, Darkable) {}
 </script>

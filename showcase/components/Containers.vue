@@ -31,7 +31,16 @@
 <script lang="ts">
 import { Darkable } from '../../src/lib/mixins/darkable'
 import { Component } from 'vue-property-decorator'
+import {
+  GioHeading,
+  GioBodyText,
+  GioList,
+  GioListItem,
+  GioInlineCode
+} from '../../src/vue/components'
 
-@Component
+@Component({
+  components: { GioHeading, GioBodyText, GioList, GioListItem, GioInlineCode }
+})
 export default class Containers extends Darkable {}
 </script>

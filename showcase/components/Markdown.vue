@@ -12,8 +12,11 @@ import Vue from 'vue'
 import { Component } from 'vue-property-decorator'
 import { GioMarkdownRenderer } from '../../src/lib/utils/markdown'
 import { RELATIVE_URL_RESOLVER } from '../constants'
+import { GioMarkdownRenderer as GioMarkdownRendererComponent } from '../../src/vue/components'
 
-@Component
+@Component({
+  components: { GioMarkdownRenderer: GioMarkdownRendererComponent }
+})
 export default class Markdown extends Vue {
   renderer = new GioMarkdownRenderer(RELATIVE_URL_RESOLVER)
   markdownContent = ''

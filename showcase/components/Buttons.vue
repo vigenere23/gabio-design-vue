@@ -38,8 +38,17 @@
 <script lang="ts">
 import { Darkable } from '../../src/lib/mixins/darkable'
 import { Component } from 'vue-property-decorator'
+import {
+  GioButton,
+  GioHeading,
+  GioInlineCode,
+  GioIcon,
+  GioBodyText
+} from '../../src/vue/components'
 
-@Component
+@Component({
+  components: { GioButton, GioBodyText, GioHeading, GioInlineCode, GioIcon }
+})
 export default class Buttons extends Darkable {
   onClick(): void {
     alert('You clicked me you bastard!')

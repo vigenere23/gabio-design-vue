@@ -1,5 +1,3 @@
-import './VueRenderer'
-
 export { default as GioButton } from './Button.vue'
 export { default as GioCard } from './Card.vue'
 export { default as GioMarkdownRenderer } from './MarkdownRenderer.vue'

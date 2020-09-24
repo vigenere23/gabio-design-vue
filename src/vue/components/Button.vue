@@ -21,6 +21,8 @@ import Vue from 'vue'
 import { Darkable } from '@/lib/mixins/darkable'
 import { mixins } from 'vue-class-component'
 import { Component, Prop } from 'vue-property-decorator'
+import GioText from '@/vue/components/typography/Text.vue'
+import GioSmartLink from '@/vue/components/SmartLink.vue'
 
 type Size = 'small' | 'medium'
 
@@ -33,7 +35,8 @@ const Props = Vue.extend({
 })
 
 @Component({
-  name: 'GioButton'
+  name: 'GioButton',
+  components: { GioText, GioSmartLink }
 })
 export default class GioButton extends mixins(Props, Darkable) {
   @Prop({ type: String, default: 'medium' }) size!: Size

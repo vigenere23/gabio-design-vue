@@ -33,18 +33,24 @@
   </div>
 </template>
 
-<script>
-export default {
-  // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
-  data() {
-    return {
-      dark: false
-    }
-  },
-  computed: {
-    showMarkdownSection() {
-      return process.env.NODE_ENV !== 'production'
-    }
+<script lang="ts">
+import Vue from 'vue'
+import { Component } from 'vue-property-decorator'
+import {
+  GioBodyText,
+  GioSection,
+  GioContent,
+  GioTitle
+} from '../../src/vue/components'
+
+@Component({
+  components: { GioBodyText, GioSection, GioContent, GioTitle }
+})
+export default class Components extends Vue {
+  dark = false
+  get showMarkdownSection(): boolean {
+    // return false
+    return process.env.NODE_ENV !== 'production'
   }
 }
 </script>
