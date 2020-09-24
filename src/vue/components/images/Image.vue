@@ -60,7 +60,7 @@ export default class GioImage extends Props {
   }
 
   mounted(): void {
-    if (this.lazy) {
+    if (this.shouldLazyLoad) {
       this.startLazyLoading()
     } else {
       this.imageSrc = this.lastSrc
@@ -72,16 +72,18 @@ export default class GioImage extends Props {
     return this.srcs[this.srcs.length - 1]
   }
 
-  private startLazyLoading(): void {
-    if (!('IntersectionObserver' in window)) return
+  private get shouldLazyLoad(): boolean {
+    return this.lazy && 'IntersectionObserver' in window
+  }
 
+  private startLazyLoading(): void {
     this.intersectionObserver = new IntersectionObserver(
       (entries, observer) => {
         this.intersectionObserver = observer
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             this.srcsets = this.srcs
-            this.imageSrc = this.srcs[0]
+            this.imageSrc = this.lastSrc
             observer.unobserve(entry.target)
           }
         })
