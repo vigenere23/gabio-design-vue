@@ -81,7 +81,7 @@ export default class GioImage extends Props {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             this.srcsets = this.srcs
-            this.imageSrc = this.lastSrc
+            this.imageSrc = this.srcs[0]
             observer.unobserve(entry.target)
           }
         })
