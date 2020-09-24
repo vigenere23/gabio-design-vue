@@ -1,5 +1,5 @@
 <template>
-  <div class="gio-base-text" :class="{ dark, ...typeClass }">
+  <div class="gio-text" :class="{ dark, ...typeClass }">
     <slot />
   </div>
 </template>
@@ -40,7 +40,7 @@ export default class GioText extends mixins(Props, Darkable) {
 @import '~@/lib/styles/colors';
 @import '~@/lib/styles/fonts';
 
-.gio-base-text {
+.gio-text {
   font-family: $classic-font;
   font-size: 4rem;
   font-weight: 500;

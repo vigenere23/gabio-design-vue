@@ -1,27 +1,26 @@
 <template>
-  <img
-    ref="image"
-    class="gio-base-image"
-    :style="{ ...objectFitStyle }"
-    :src="imageSrc"
-    :data-src="dataImageSrc"
-    :alt="description"
-    :title="description"
-  />
+  <picture class="gio-image">
+    <source v-for="src in srcs" :key="src" :srcset="src" />
+    <img
+      class="gio-image__image"
+      ref="image"
+      :style="{ ...objectFitStyle }"
+      :src="imageSrc"
+      :data-src="dataImageSrc"
+      :alt="description"
+      :title="description"
+    />
+  </picture>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
-import { Component } from 'vue-property-decorator'
+import { Component, Prop } from 'vue-property-decorator'
 
 const LOADING_IMAGE_SRC = '' // TODO add real default image
 
 const Props = Vue.extend({
   props: {
-    src: {
-      type: String,
-      required: true
-    },
     description: {
       type: String,
       required: false
@@ -42,6 +41,8 @@ const Props = Vue.extend({
   name: 'GioImage'
 })
 export default class GioImage extends Props {
+  @Prop({ type: Array, required: true }) srcs!: string[]
+
   imageSrc = LOADING_IMAGE_SRC
   intersectionObserver: IntersectionObserver | null = null
 
@@ -57,16 +58,16 @@ export default class GioImage extends Props {
     if (this.lazy) {
       this.startLazyLoading()
     } else {
-      this.imageSrc = this.src
+      this.imageSrc = this.lastSrc
     }
   }
 
-  get computedSrc(): string {
-    return this.lazy ? LOADING_IMAGE_SRC : this.src
+  get dataImageSrc(): string | undefined {
+    return this.lazy ? this.lastSrc : undefined
   }
 
-  get dataImageSrc(): string | undefined {
-    return this.lazy ? this.src : undefined
+  private get lastSrc(): string {
+    return this.srcs[this.srcs.length - 1]
   }
 
   private startLazyLoading(): void {
@@ -90,7 +91,13 @@ export default class GioImage extends Props {
 </script>
 
 <style lang="scss">
-.gio-base-image {
+.gio-image {
   display: block;
+
+  &__image {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
 }
 </style>

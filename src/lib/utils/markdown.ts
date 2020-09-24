@@ -24,7 +24,7 @@ export class GioMarkdownRenderer extends marked.Renderer {
   image(href: string, title: string, text: string): string {
     return `
       <GioCaptionedImage
-        src="${resolveURL(href, this.relativeUrlResolver)}"
+        :srcs="['${resolveURL(href, this.relativeUrlResolver)}']"
         caption="${text || title || ''}"
         lazy
       />

@@ -2,7 +2,7 @@
   <div class="gio-captioned-image" :class="{ dark }" :style="{ width }">
     <GioImage
       class="gio-captioned-image__image"
-      :src="src"
+      :srcs="srcs"
       :description="caption"
       :lazy="lazy"
     />
@@ -26,8 +26,8 @@ import { mixins } from 'vue-class-component'
 
 const Props = Vue.extend({
   props: {
-    src: {
-      type: String,
+    srcs: {
+      type: Array,
       required: true
     },
     caption: {

@@ -52,7 +52,7 @@ export default class GioCaption extends mixins(Props, Darkable, NoMarginable) {}
   }
 
   .gio-body-text,
-  .gio-base-text {
+  .gio-text {
     line-height: normal;
   }
 
