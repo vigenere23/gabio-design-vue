@@ -4,7 +4,7 @@
       v-for="(srcset, i) in srcsets"
       :key="i"
       :srcset="srcset"
-      :type="imageType(srcset)"
+      :onerror="`this.srcset='${lastSrc}';`"
     />
     <img
       class="gio-image__image"
@@ -66,11 +66,6 @@ export default class GioImage extends Props {
       this.imageSrc = this.lastSrc
       this.srcsets = this.srcs
     }
-  }
-
-  imageType(imageSrc: string): string {
-    const extension = imageSrc.split('.').pop()
-    return `image/${extension}`
   }
 
   private get lastSrc(): string {
