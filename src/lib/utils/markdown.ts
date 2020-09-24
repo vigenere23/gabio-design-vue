@@ -26,7 +26,6 @@ export class GioMarkdownRenderer extends marked.Renderer {
       <GioCaptionedImage
         src="${resolveURL(href, this.relativeUrlResolver)}"
         caption="${text || title || ''}"
-        preventLazyLoading
       />
     `
   }

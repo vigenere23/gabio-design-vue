@@ -3,8 +3,8 @@
     ref="image"
     class="gio-base-image"
     :style="{ ...objectFitStyle }"
-    :src="computedSrc"
-    :data-src="computedDataSrc"
+    :src="imageSrc"
+    :data-src="dataImageSrc"
     :alt="description"
     :title="description"
   />
@@ -14,7 +14,7 @@
 import Vue from 'vue'
 import { Component } from 'vue-property-decorator'
 
-const DEFAULT_IMAGE_SRC = '' // TODO add real default image
+const LOADING_IMAGE_SRC = '' // TODO add real default image
 
 const Props = Vue.extend({
   props: {
@@ -31,7 +31,7 @@ const Props = Vue.extend({
       required: false,
       validator: (value) => ['contain', 'cover'].includes(value)
     },
-    preventLazyLoading: {
+    lazy: {
       type: Boolean,
       default: false
     }
@@ -42,6 +42,9 @@ const Props = Vue.extend({
   name: 'GioImage'
 })
 export default class GioImage extends Props {
+  imageSrc = LOADING_IMAGE_SRC
+  intersectionObserver: IntersectionObserver | null = null
+
   get objectFitStyle(): { [key: string]: string } {
     if (!this.objectFit) return {}
 
@@ -51,39 +54,37 @@ export default class GioImage extends Props {
   }
 
   mounted(): void {
-    if (this.preventLazyLoading) return
-
-    this.startLazyLoading()
+    if (this.lazy) {
+      this.startLazyLoading()
+    } else {
+      this.imageSrc = this.src
+    }
   }
 
   get computedSrc(): string {
-    return this.preventLazyLoading ? this.src : DEFAULT_IMAGE_SRC
+    return this.lazy ? LOADING_IMAGE_SRC : this.src
   }
 
-  get computedDataSrc(): string {
-    return this.preventLazyLoading ? DEFAULT_IMAGE_SRC : this.src
+  get dataImageSrc(): string | undefined {
+    return this.lazy ? this.src : undefined
   }
 
   private startLazyLoading(): void {
-    document.addEventListener('DOMContentLoaded', () => {
-      if ('IntersectionObserver' in window) {
-        let lazyImageObserver = new IntersectionObserver((
-          entries /*, observer*/
-        ) => {
-          entries.forEach(function (entry) {
-            if (entry.isIntersecting) {
-              let lazyImage = entry.target as HTMLImageElement
-              lazyImage.src = lazyImage.dataset.src as string
-              lazyImageObserver.unobserve(lazyImage)
-            }
-          })
-        })
+    if (!('IntersectionObserver' in window)) return
 
-        lazyImageObserver.observe(this.$refs.image as Element)
-      } else {
-        // Possibly fall back to event handlers here
+    this.intersectionObserver = new IntersectionObserver(
+      (entries, observer) => {
+        this.intersectionObserver = observer
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            let lazyImage = entry.target as HTMLImageElement
+            this.imageSrc = lazyImage.dataset.src as string
+            observer.unobserve(lazyImage)
+          }
+        })
       }
-    })
+    )
+    this.intersectionObserver.observe(this.$refs.image as Element)
   }
 }
 </script>

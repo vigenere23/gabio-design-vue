@@ -4,7 +4,7 @@
       class="gio-captioned-image__image"
       :src="src"
       :description="caption"
-      :preventLazyLoading="preventLazyLoading"
+      :lazy="lazy"
     />
     <template v-if="caption">
       <GioCaption
@@ -38,7 +38,7 @@ const Props = Vue.extend({
       type: String,
       default: '100%'
     },
-    preventLazyLoading: {
+    lazy: {
       type: Boolean,
       default: false
     }

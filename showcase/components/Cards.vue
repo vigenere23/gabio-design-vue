@@ -13,6 +13,7 @@
           <GioImage
             src="https://user-images.githubusercontent.com/32545895/72564049-efe3b800-387c-11ea-888b-5c1cd3745b61.png"
             objectFit="cover"
+            lazy
           />
         </template>
         <template v-slot:actions>
