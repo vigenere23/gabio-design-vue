@@ -1,5 +1,6 @@
 import _Vue from 'vue'
 import { plugin } from '@/vue/initializers/plugin'
+import * as components from '@/vue/components'
 
 // To bundle fonts and styles
 import '@openfonts/sen_latin'
@@ -23,5 +24,7 @@ if ('false' === process.env.ES_BUILD) {
   }
 }
 // Default export is library as a whole, registered via Vue.use()
-export default plugin
-export * from '@/vue/components'
+export default {
+  ...plugin,
+  components
+}
