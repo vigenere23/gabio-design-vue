@@ -1,6 +1,6 @@
 {
   "name": "@vigenere23/gio",
-  "version": "1.7.8",
+  "version": "1.9.0",
   "publishConfig": {
     "access": "public"
   },
@@ -22,9 +22,11 @@
     "build:lib": "node ./scripts/build-lib.js",
     "build:showcase": "vue-cli-service build --dest dist-showcase showcase/main.ts",
     "serve:showcase": "vue-cli-service serve showcase/main.ts",
-    "prepublishOnly": "yarn build"
+    "prepublishOnly": "yarn build",
+    "build:showcase:markdown": "ts-node ./scripts/build-markdown.ts"
   },
   "dependencies": {
+    "@gabio/markdown-vue-transpiler": "^1.2.6",
     "@openfonts/sen_latin": "^1.0.3",
     "marked": "^1.1.1",
     "prismjs": "^1.21.0",
@@ -54,7 +56,8 @@
     "raw-loader": "^4.0.1",
     "sass": "^1.26.10",
     "sass-loader": "^10.0.1",
-    "typescript": "^3.8.3",
+    "ts-node": "^9.0.0",
+    "typescript": "^4.0.3",
     "vue-template-compiler": "^2.6.11"
   },
   "peerDependencies": {

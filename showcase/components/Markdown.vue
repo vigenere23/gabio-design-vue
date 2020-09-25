@@ -1,26 +1,15 @@
 <template>
-  <div class="markdown">
-    <GioMarkdownRenderer
-      :markdownContent="markdownContent"
-      :renderer="renderer"
-    ></GioMarkdownRenderer>
-  </div>
+  <markdown-article class="markdown" />
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
 import { Component } from 'vue-property-decorator'
-import { GioMarkdownRenderer } from '../../src/lib/utils/markdown'
-import { RELATIVE_URL_RESOLVER } from '../constants'
 
-@Component
-export default class Markdown extends Vue {
-  renderer = new GioMarkdownRenderer(RELATIVE_URL_RESOLVER)
-  markdownContent = ''
-
-  async mounted(): Promise<void> {
-    const file = await import(`@showcase/data/example.md`)
-    this.markdownContent = file.default
+@Component({
+  components: {
+    'markdown-article': () => import(`@showcase/data/example.vue`)
   }
-}
+})
+export default class Markdown extends Vue {}
 </script>

@@ -122,8 +122,35 @@
 <script lang="ts">
 import { Darkable } from '../../src/lib/mixins/darkable'
 import { Component } from 'vue-property-decorator'
+import {
+  GioBodyText,
+  GioList,
+  GioListItem,
+  GioHeading,
+  GioInlineCode,
+  GioCaption,
+  GioTag,
+  GioSubtitle,
+  GioSmartLink,
+  GioText,
+  GioIcon
+} from '../../src/vue/components'
 
-@Component
+@Component({
+  components: {
+    GioBodyText,
+    GioList,
+    GioListItem,
+    GioHeading,
+    GioInlineCode,
+    GioCaption,
+    GioTag,
+    GioSubtitle,
+    GioSmartLink,
+    GioText,
+    GioIcon
+  }
+})
 export default class Typography extends Darkable {}
 </script>
 

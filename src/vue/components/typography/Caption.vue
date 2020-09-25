@@ -15,6 +15,7 @@ import { Component } from 'vue-property-decorator'
 import { Darkable } from '@/lib/mixins/darkable'
 import { NoMarginable } from '@/lib/mixins/no-marginable'
 import { mixins } from 'vue-class-component'
+import GioText from '@/vue/components/typography/Text.vue'
 
 const Props = Vue.extend({
   props: {
@@ -23,7 +24,8 @@ const Props = Vue.extend({
 })
 
 @Component({
-  name: 'GioCaption'
+  name: 'GioCaption',
+  components: { GioText }
 })
 export default class GioCaption extends mixins(Props, Darkable, NoMarginable) {}
 </script>

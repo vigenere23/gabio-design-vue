@@ -13,9 +13,11 @@ import { Component } from 'vue-property-decorator'
 import { Darkable } from '@/lib/mixins/darkable'
 import { NoMarginable } from '@/lib/mixins/no-marginable'
 import { mixins } from 'vue-class-component'
+import GioText from '@/vue/components/typography/Text.vue'
 
 @Component({
-  name: 'GioBodyText'
+  name: 'GioBodyText',
+  components: { GioText }
 })
 export default class GioBodyText extends mixins(Darkable, NoMarginable) {}
 </script>

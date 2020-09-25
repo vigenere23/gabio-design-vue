@@ -40,8 +40,17 @@
 <script lang="ts">
 import { Darkable } from '../../src/lib/mixins/darkable'
 import { Component } from 'vue-property-decorator'
+import {
+  GioHeading,
+  GioCard,
+  GioImage,
+  GioButton,
+  GioIcon
+} from '../../src/vue/components'
 
-@Component
+@Component({
+  components: { GioHeading, GioCard, GioImage, GioButton, GioIcon }
+})
 export default class Cards extends Darkable {}
 </script>
 

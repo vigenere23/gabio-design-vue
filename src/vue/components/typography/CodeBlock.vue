@@ -23,6 +23,7 @@
 <script lang="ts">
 import Vue from 'vue'
 import { Component } from 'vue-property-decorator'
+import GioText from '@/vue/components/typography/Text.vue'
 
 const Props = Vue.extend({
   props: {
@@ -38,7 +39,8 @@ const Props = Vue.extend({
 })
 
 @Component({
-  name: 'GioCodeBlock'
+  name: 'GioCodeBlock',
+  components: { GioText }
 })
 export default class GioCodeBlocks extends Props {
   get decodedCode(): string {

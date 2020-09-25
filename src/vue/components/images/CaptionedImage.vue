@@ -23,6 +23,8 @@ import { Darkable } from '@/lib/mixins/darkable'
 import Vue from 'vue'
 import { Component } from 'vue-property-decorator'
 import { mixins } from 'vue-class-component'
+import GioCaption from '@/vue/components/typography/Caption.vue'
+import GioImage from '@/vue/components/images/Image.vue'
 
 const Props = Vue.extend({
   props: {
@@ -46,7 +48,8 @@ const Props = Vue.extend({
 })
 
 @Component({
-  name: 'GioCaptionedImage'
+  name: 'GioCaptionedImage',
+  components: { GioImage, GioCaption }
 })
 export default class GioCaptionedImage extends mixins(Props, Darkable) {}
 </script>

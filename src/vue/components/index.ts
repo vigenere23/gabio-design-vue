@@ -1,8 +1,5 @@
-import './VueRenderer'
-
 export { default as GioButton } from './Button.vue'
 export { default as GioCard } from './Card.vue'
-export { default as GioMarkdownRenderer } from './MarkdownRenderer.vue'
 export { default as GioSmartLink } from './SmartLink.vue'
 export { default as GioContent } from './containers/Content.vue'
 export { default as GioLetterPage } from './containers/LetterPage.vue'
