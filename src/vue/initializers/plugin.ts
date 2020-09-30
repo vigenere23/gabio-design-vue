@@ -1,4 +1,4 @@
-import { PluginFunction, VueConstructor } from 'vue'
+import { PluginFunction } from 'vue'
 
 interface PluginOptions {
   autoRegister?: boolean
@@ -20,33 +20,25 @@ interface InstallFunction extends PluginFunction<PluginOptions> {
 }
 
 // install function executed by Vue.use()
-const install: InstallFunction = function installGio(Vue, options) {
+const install: InstallFunction = async function installGio(Vue, options) {
   if (install.installed) return
   install.installed = true
 
   options = { ...DEFAULT_OPTIONS, ...options }
 
   if (options.autoRegister) {
-    registerComponents(Vue)
+    const module = await import(`@/vue/initializers/components-registerer`)
+    new module.ComponentsRegisterer().register(Vue)
   }
 
   if (options.modules) {
     const modulesOptions = options.modules
 
     if (modulesOptions.prism) {
-      registerPrism(Vue)
+      const module = await import(`@/vue/initializers/prism-registerer`)
+      new module.PrismRegisterer().register(Vue)
     }
   }
-}
-
-async function registerComponents(Vue: VueConstructor<Vue>): Promise<void> {
-  const module = await import(`@/vue/initializers/components-registerer`)
-  new module.ComponentsRegisterer().register(Vue)
-}
-
-async function registerPrism(Vue: VueConstructor<Vue>): Promise<void> {
-  const module = await import(`@/vue/initializers/prism-registerer`)
-  new module.PrismRegisterer().register(Vue)
 }
 
 // Create module definition for Vue.use()
