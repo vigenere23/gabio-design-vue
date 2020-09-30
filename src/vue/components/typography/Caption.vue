@@ -60,7 +60,7 @@ export default class GioCaption extends mixins(Props, Darkable, NoMarginable) {}
 
   .gio-body-text {
     font-size: inherit;
-    margin: 0;
+    margin: 0 !important;
   }
 }
 </style>
