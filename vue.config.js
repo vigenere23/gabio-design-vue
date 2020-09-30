@@ -11,18 +11,27 @@ module.exports = {
         '@showcase': path.join(__dirname, './showcase')
       }
     },
+    entry: {
+      index: path.resolve(__dirname, './src/vue/entry.ts')
+    },
     optimization: {
-      splitChunks: {
-        chunks: 'all',
-        cacheGroups: {
-          vendors: {
-            test: /node_modules\/(?!antd\/).*/,
-            name: 'vendors',
-            chunks: 'all'
-          }
-        }
-      }
+      minimize: true
+      // runtimeChunk: 'single',
+      // splitChunks: {
+      //   chunks: 'async',
+      //   cacheGroups: {
+      //     vendors: {
+      //       test: /[\\/]node_modules[\\/]/,
+      //       name: 'vendors'
+      //     }
+      //   }
+      // }
     }
+    // output: {
+    //   filename: '[name].[contenthash:8].bundle.js',
+    //   chunkFilename: '[name].[contenthash:8].bundle.js',
+    //   path: path.resolve(__dirname, 'dist')
+    // }
   },
   chainWebpack: (config) => {
     config.plugin('fork-ts-checker').tap((args) => {
