@@ -10,6 +10,19 @@ module.exports = {
         '@': path.join(__dirname, './src'),
         '@showcase': path.join(__dirname, './showcase')
       }
+    },
+    optimization: {
+      minimize: true,
+      splitChunks: {
+        chunks: 'all',
+        cacheGroups: {
+          vendors: {
+            test: /node_modules\/(?!antd\/).*/,
+            name: 'vendors',
+            chunks: 'all'
+          }
+        }
+      }
     }
   },
   chainWebpack: (config) => {

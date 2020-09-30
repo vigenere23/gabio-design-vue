@@ -1,6 +1,4 @@
 import { PluginFunction } from 'vue'
-import { ComponentsRegisterer } from '@/vue/initializers/components-registerer'
-import { PrismRegisterer } from '@/vue/initializers/prism-registerer'
 
 interface PluginOptions {
   autoRegister?: boolean
@@ -22,21 +20,23 @@ interface InstallFunction extends PluginFunction<PluginOptions> {
 }
 
 // install function executed by Vue.use()
-const install: InstallFunction = function installGio(Vue, options) {
+const install: InstallFunction = async function installGio(Vue, options) {
   if (install.installed) return
   install.installed = true
 
   options = { ...DEFAULT_OPTIONS, ...options }
 
   if (options.autoRegister) {
-    new ComponentsRegisterer().register(Vue)
+    const module = await import(`@/vue/initializers/components-registerer`)
+    new module.ComponentsRegisterer().register(Vue)
   }
 
   if (options.modules) {
     const modulesOptions = options.modules
 
     if (modulesOptions.prism) {
-      new PrismRegisterer().register(Vue)
+      const module = await import(`@/vue/initializers/prism-registerer`)
+      new module.PrismRegisterer().register(Vue)
     }
   }
 }

@@ -3,7 +3,7 @@
     <GioTitle no-margin fontSize="12rem">Markdown</GioTitle>
 <GioBodyText>
       <GioCaptionedImage
-        :srcs="[require('@showcase/assets/gab-io.png')]"
+        :srcs="[require(`@showcase/assets/gab-io.png`)]"
         caption="gab.io logo"
         lazy
       />
