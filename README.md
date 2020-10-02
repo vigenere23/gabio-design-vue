@@ -1,13 +1,11 @@
-# gio-library
+# @gabio/design-vue
 
 A Vue design library by Gabriel St-Pierre
-
-> :warning: This library is still in its early ages, resulting in many breaking changes. Once the stability will be reached, the package will be moved to `@gabio/design`.
 
 ## Installation
 
 ```
-yarn add @vigenere23/gio
+yarn add @gabio/design-vue
 ```
 
 ## Usage
@@ -16,8 +14,8 @@ In the `main.ts`/`main.js` file of your Vue project, add the following lines :
 
 ```ts
 import Vue from 'vue'
-import gio from '@vigenere23/gio'
-import '@vigenere23/gio/dist/gio.css' // for loading component styles
+import gio from '@gabio/design-vue'
+import '@gabio/design-vue/dist/gio.css' // for loading component styles
 
 Vue.use(gio)
 ```
@@ -41,9 +39,7 @@ There is no documentation for now. Please read the [`src/`](./src) folder conten
 
 ## NPM module
 
-The npm module for this library is available [here](https://www.npmjs.com/package/@vigenere23/gio). Mixins and styles are available inside the compiled `lib/` subfolder.
-
-> :warning: This package will soon move to `@gio/design`.
+The npm module for this library is available [here](https://www.npmjs.com/package/@gabio/design-vue). Mixins and styles are available inside the compiled `lib/` subfolder.
 
 ## Future work
 
