@@ -26,7 +26,6 @@
     "build:showcase:markdown": "ts-node ./scripts/build-markdown.ts"
   },
   "dependencies": {
-    "@gabio/markdown-vue-transpiler": "^1.2.6",
     "@openfonts/sen_latin": "^1.0.3",
     "@types/marked": "^1.1.0",
     "marked": "^1.2.0",
@@ -39,6 +38,7 @@
     "vue-property-decorator": "^9.0.0"
   },
   "devDependencies": {
+    "@gabio/markdown-transpiler": "^1.2.6",
     "@types/node": "^14.6.2",
     "@typescript-eslint/eslint-plugin": "^4.0.1",
     "@typescript-eslint/parser": "^4.0.1",

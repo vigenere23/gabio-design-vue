@@ -1,4 +1,4 @@
-import { MarkdownParser } from '@gabio/markdown-vue-transpiler'
+import { MarkdownParser } from '@gabio/markdown-transpiler'
 import marked, { Renderer } from 'marked'
 import { RelativeUrlResolver, resolveURL } from './url'
 

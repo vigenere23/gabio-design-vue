@@ -2,7 +2,7 @@ import path from 'path'
 import {
   MarkdownTranspiler,
   TypescriptClassVueFileCreator
-} from '@gabio/markdown-vue-transpiler'
+} from '@gabio/markdown-transpiler'
 import { GioMarkdownParser } from '../src/lib/utils/markdown'
 import { RELATIVE_URL_RESOLVER } from '../showcase/constants'
 
