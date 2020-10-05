@@ -1,7 +1,7 @@
 import path from 'path'
 import {
   MarkdownTranspiler,
-  TypescriptClassVueFileCreator
+  VueTypescriptClassFileCreator
 } from '@gabio/markdown-transpiler'
 import { GioMarkdownParser } from '../src/lib/utils/markdown'
 import { RELATIVE_URL_RESOLVER } from '../showcase/constants'
@@ -14,7 +14,7 @@ const markdownCompiler = new MarkdownTranspiler({
   inputPattern,
   outputDir,
   parser: new GioMarkdownParser(RELATIVE_URL_RESOLVER),
-  fileCreator: new TypescriptClassVueFileCreator()
+  fileCreator: new VueTypescriptClassFileCreator()
 })
 
 markdownCompiler.startCompilation()

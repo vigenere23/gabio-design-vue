@@ -82,7 +82,7 @@ export class GioMarkdownParser implements MarkdownParser {
 
   dependencies = {}
 
-  toVue(markdownContent: string): string {
+  parse(markdownContent: string): string {
     return marked(markdownContent, {
       renderer: this.renderer
     })
