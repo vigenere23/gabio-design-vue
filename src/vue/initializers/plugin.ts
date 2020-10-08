@@ -1,19 +1,18 @@
 import { PluginFunction } from 'vue'
 import { ComponentsRegisterer } from '@/vue/initializers/components-registerer'
-import { PrismRegisterer } from '@/vue/initializers/prism-registerer'
 
 interface PluginOptions {
   autoRegister?: boolean
-  modules?: {
-    prism?: true
-  }
+  // modules?: {
+  //   prism?: boolean
+  // }
 }
 
 const DEFAULT_OPTIONS: PluginOptions = {
-  autoRegister: true,
-  modules: {
-    prism: true
-  }
+  autoRegister: true
+  // modules: {
+  //   prism: false
+  // }
 }
 
 // Define typescript interfaces for autoinstaller
@@ -32,13 +31,9 @@ const install: InstallFunction = function installGio(Vue, options) {
     new ComponentsRegisterer().register(Vue)
   }
 
-  if (options.modules) {
-    const modulesOptions = options.modules
-
-    if (modulesOptions.prism) {
-      new PrismRegisterer().register(Vue)
-    }
-  }
+  // if (options.modules) {
+  //   const modulesOptions = options.modules
+  // }
 }
 
 // Create module definition for Vue.use()

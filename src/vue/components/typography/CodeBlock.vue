@@ -11,12 +11,9 @@
       </GioText>
     </div>
 
-    <template v-if="language">
-      <prism :language="language">{{ decodedCode }}</prism>
-    </template>
-    <template v-else>
-      <pre><code>{{ decodedCode }}</code></pre>
-    </template>
+    <pre><code
+      ref="codeElement"
+      :class="`language-${language}`">{{ decodedCode }}</code></pre>
   </div>
 </template>
 
@@ -24,6 +21,7 @@
 import Vue from 'vue'
 import { Component } from 'vue-property-decorator'
 import GioText from '@/vue/components/typography/Text.vue'
+import Prism from '../../../vendors/prism.min.js'
 
 const Props = Vue.extend({
   props: {
@@ -46,6 +44,10 @@ export default class GioCodeBlocks extends Props {
   get decodedCode(): string {
     return decodeURI(this.code)
   }
+
+  mounted(): void {
+    Prism.highlightElement(this.$refs.codeElement)
+  }
 }
 </script>
 
@@ -66,7 +68,7 @@ export default class GioCodeBlocks extends Props {
     justify-content: space-between;
     align-items: center;
     padding: 2rem;
-    background-color: $accent-dark;
+    background-color: $hover-dark;
     color: $primary-text-light;
     text-align: left;
 
