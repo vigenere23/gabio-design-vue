@@ -1,10 +1,13 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 const path = require('path')
+// const BundleAnalyzerPlugin = require('webpack-bundle-analyzer')
+//   .BundleAnalyzerPlugin
 
 module.exports = {
   publicPath:
     process.env.NODE_ENV === 'production' ? '/gio-library-showcase/' : '/',
   configureWebpack: {
+    // plugins: [new BundleAnalyzerPlugin()],
     resolve: {
       alias: {
         '@': path.join(__dirname, './src'),
