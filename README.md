@@ -1,6 +1,6 @@
 [![npm version](https://badge.fury.io/js/%40gabio%2Fdesign-vue.svg)](https://badge.fury.io/js/%40gabio%2Fdesign-vue)
 
-# 💎 @gabio/design-vue
+# 💎 [@gabio/design-vue](https://www.npmjs.com/package/@gabio/design-vue)
 
 A Vue design library by Gabriel St-Pierre
 
